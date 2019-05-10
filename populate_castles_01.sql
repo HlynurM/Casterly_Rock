@@ -8,7 +8,7 @@ INSERT INTO estates_estatescategory (name) VALUES('Chocolate');
 INSERT INTO estates_estatescategory (name) VALUES('Gummy');
 INSERT INTO estates_estatescategory (name) VALUES('Sour');
 INSERT INTO estates_estatescategory (name) VALUES('Toffee');
-
+lkjhkhkh
 INSERT INTO estates_estates (name, description, price, on_sale, category_id, notendur_id) VALUES('KitKat', 'First launched in the UK in 1935 it has become an iconic snack bar ever since. Just unwrap the bar, break off one of the fingers and savour the deliciously smooth milk chocolate.', 4.99, false, 1, 1);
 INSERT INTO estates_estates (name, description, price, on_sale, category_id, notendur_id) VALUES('Hershey’s Cookies n Chocolate', 'Delicous Hershey’s Milk Chocolate with crunchy little cookie pieces', 1.99, true, 1, 4);
 INSERT INTO estates_estates (name, description, price, on_sale, category_id, notendur_id) VALUES('Ferrero Rocher', 'At the centre lies a perfectly roasted hazelnut, surrounded by a luscious, smooth filling and a delicate crisp wafer, all enveloped in creamy milk chocolate and finely chopped hazelnuts.', 2.49, false, 1, 3);
