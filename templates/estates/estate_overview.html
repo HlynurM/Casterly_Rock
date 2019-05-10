@@ -9,7 +9,7 @@
 
     {# TODO:   Fara i gegnum allar myndir#}
     {% for photo in estate.estatesimage_set.all %}
-        <img src="{{ photo.image }}" class="estate-img"/>
+        <img src="{{ photo.image }}" class="estate-img img-thumbnail"/>
     {% endfor %}
 
 {% endblock content %}
