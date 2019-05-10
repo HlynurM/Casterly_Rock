@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/Hikari/Dev/Casterly/Casterly_Rock/venv"
+VIRTUAL_ENV="/Users/Hikari/Dev/Casterly/Casterly/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

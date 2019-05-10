@@ -1,4 +1,4 @@
-#!/Users/Hikari/Dev/Casterly/Casterly_Rock/venv/bin/python
+#!/Users/Hikari/Dev/Casterly/Casterly/venv/bin/python
 from django.core import management
 
 if __name__ == "__main__":

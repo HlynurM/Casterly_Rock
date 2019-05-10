@@ -1,0 +1,71 @@
+* {
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4 h5, h6 {
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    color: #A32927 !important;
+}
+
+p {
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    font-style: normal;
+    color: #370003 !important;
+}
+
+
+
+ #navBarSearchWidth {
+     width:300px !important;
+ }
+
+.estate-img {
+    width:250px;
+    transition: transform 1s ease-in;
+    max-height: 250px;
+    max-width: 250px;
+}
+
+.users {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.user {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    border-radius: 0;
+    margin: 0;}
+
+.user .user-img {
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.well {
+    background-color: #fdfdfd;
+    /*height: 550px;*/
+    /*width: 1200px;*/
+}
+
+ .my_color_palette {
+     color: #930416;
+     color: #64000D;
+     color: #370003;
+     color: #A32927;
+     color: #EAB64D;
+     color: #FB8F2B;
+     color: #2794A3;
+     color: #FFFFFF;
+     color: #BEBEBE;
+     color: #838383;
+     color: #4A4A4A;
+     color: #1F1F1F;
+ }

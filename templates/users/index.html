@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h3>Notendur</h3>
+    <div class="users"> {# TODO: Geri thetta css seinna #}
+    {%  for user in users %}
+        {% include 'users/user_single.html' with user=user %}
+    {% endfor %}
+    </div>
+
+{% endblock content %}

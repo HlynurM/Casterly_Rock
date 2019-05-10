@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2>{{ estate.name }}</h2>
+    <h1>Price: ${{ estate.price }}</h1>
+    <p>{{ estate.description }}</p>
+    <p>Current owner: {{ estate.notendur.name }}</p>
+
+    {# TODO:   Fara i gegnum allar myndir#}
+    {% for photo in estate.estatesimage_set.all %}
+        <img src="{{ photo.image }}" class="estate-img"/>
+    {% endfor %}
+
+{% endblock content %}
