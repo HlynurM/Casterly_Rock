@@ -1,7 +1,8 @@
+-- kl. 10.43 - 11.5.2019
 
 DROP TABLE IF EXISTS Kingdom cascade;
 DROP TABLE IF EXISTS RegionCode cascade;
-DROP TABLE IF EXISTS Castle cascade;
+DROP TABLE IF EXISTS Residence cascade;
 DROP TABLE IF EXISTS CreditCard cascade;
 DROP TABLE IF EXISTS Users cascade;
 DROP TABLE IF EXISTS Buyer cascade;
@@ -19,17 +20,17 @@ CREATE TABLE Kingdom(
 		
 		
 CREATE TABLE RegionCode(
-    rID	SERIAL,	
-    PRIMARY KEY(Rid)
+    rID INT,	
+    PRIMARY KEY(rID)
 );
 		
 		
-CREATE TABLE Castle(
+CREATE TABLE Residence(
     aID	SERIAL,
-    CastleName	VARCHAR(50),
-    PRIMARY KEY(aID),
+    Residence VARCHAR(50),
     rID	INT,
     kID	INT,
+    PRIMARY KEY(aID),
     FOREIGN KEY (rID) REFERENCES RegionCode,
     FOREIGN KEY (kID) REFERENCES Kingdom
 );
@@ -60,19 +61,19 @@ CREATE TABLE Buyer(
     PRIMARY KEY(bID),
     FOREIGN KEY (uID) REFERENCES Users,
 	FOREIGN KEY (crID) REFERENCES CreditCard,
-    FOREIGN KEY (aID) REFERENCES Castle
+    FOREIGN KEY (aID) REFERENCES Residence
 );
 		
 		
 CREATE TABLE Seller(
     sID	SERIAL,
     uID	INT,
-	bID INT,
 	aID INT,
+    crID INT,
     PRIMARY KEY(sID),
-	FOREIGN KEY (bID) REFERENCES Buyer,
-	FOREIGN KEY (aID) REFERENCES Castle,
-    FOREIGN KEY (uID) REFERENCES Users
+    FOREIGN KEY (uID) REFERENCES Users,
+	FOREIGN KEY (crID) REFERENCES CreditCard,
+    FOREIGN KEY (aID) REFERENCES Residence
 );
 		
 		
@@ -85,7 +86,7 @@ CREATE TABLE Administrator(
 
 CREATE TABLE Estate(
     eID	SERIAL,
-    type VARCHAR(30),
+    type VARCHAR(30), --þarf að vera sér tafla
     squareMeters INT,
     rooms INT,
     dungeon	BOOL,
@@ -93,7 +94,7 @@ CREATE TABLE Estate(
     aID	INT,
     sID	INT,
 	PRIMARY KEY (eID),
-    FOREIGN KEY (aID) REFERENCES Castle,
+    FOREIGN KEY (aID) REFERENCES Residence,
     FOREIGN KEY (sID) REFERENCES Seller
 );
 		
