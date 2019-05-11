@@ -40,10 +40,10 @@
     <form class="form-inline my-2 my-lg-0">
         <div class="input-group">
             <input class="form-control input-mini" type="search" placeholder="Leita: götuheiti, póstnúmer"
-                   aria-label="Search" aria-describedby="basic-addon2" name="leita" id="navBarSearchWidth">
+                   aria-label="Search" aria-describedby="basic-addon2" name="leita" id="search-bar">
             <div class="input-group-append">
-                <button class="btn btn-outline-light" type="submit">
-                    <span class="fas fa-search" id=""></span>
+                <button class="btn btn-outline-light" type="submit" id="">
+                    <span class="fas fa-search" id="search-button"></span>
                 </button>
             </div>
         </div>
@@ -64,7 +64,7 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{% url 'estates-index' %}">FORSÍÐA</a>
                     <a class="dropdown-item" href="{% url 'users-index' %}">MITT SVÆÐI</a>
-                    <a class="dropdown-item" href="#">SKRÁ NÝJA EIGN</a>
+                    <a class="dropdown-item" href="{% url 'add_new_estate' %}">SKRÁ NÝJA EIGN</a>
                     <a class="dropdown-item" href="#">UM OKKUR</a>
                     <div class="dropdown-divider">
                     </div>
@@ -88,8 +88,8 @@
 </div>
 
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!--/ Optional JavaScript -->
+<!--/ jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -99,6 +99,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+<!--/ Out own Javascript-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js"></script>
+<script src="{% static 'js/estates.js' %}"></script>
 </body>
 </html>
 

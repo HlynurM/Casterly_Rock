@@ -1,18 +1,29 @@
-from django.shortcuts import render, get_object_or_404
-from estates.forms.new_estate_form import CreateEstateForm
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import JsonResponse
+from estates.forms.new_estate_form import *
 from estates.models import Estates, EstatesImage
 
 def index(request):
-    # TODO: Change to order by date by default, then by filter results when we have a filter
+    '''Forsiduyfirlit'''
+    # TODO: Make the search button work properly
+    if 'search_filter' in request.GET:
+        search_filter = request.GET['search_filter']
+        estates = [{
+            'id': x.id,
+            'name': x.name,
+            'description': x.description,
+            'price': x.price,
+            'firstImage': x.estateimage_set.first().image
+        } for x in Estates.objects.filter(name__icontains=search_filter).values()]
+        return JsonResponse({'data': estates})
     context = {
         'estates': Estates.objects.all().order_by('name')
     }
-
     return render(request, 'estates/index.html', context)
 
 
-#TODO: setja upp rouding endapunkta fyrir serstakar eignir
 def get_estate_by_id(request, id):
+    '''Gets an estate by id if it exists'''
     return render(request, 'estates/estate_overview.html', {
         #GET ONE estate from the request if it exists.
         'estate' : get_object_or_404(Estates, pk=id)
@@ -22,15 +33,35 @@ def add_new_estate(request):
     if request.method == 'POST':
         form = CreateEstateForm(data=request.POST)
         if form.is_valid():
-            estate = form.save()
+            estate = form.save()    #save the form into database
             estate_image = EstatesImage(image=request.POST['image'], estate=estate)
-            estate_image.save()
+            estate_image.save()     #save the image into database
             return redirect('estates-index')
     else:
         form = CreateEstateForm()
 
-
-        context = {
-            'form': form
-        }
+    context = {
+        'form': form
+    }
     return render(request, 'estates/add_new_estate.html', context)
+
+def remove_estate(request, id):
+    estate = get_object_or_404(Estates, pk=id)
+    estate.delete()
+    return redirect('estates-index')
+
+def update_estate(request, id):
+    the_estate = get_object_or_404(Estates, pk=id)
+    if request.method == 'POST':
+        form = UpdateEstateForm(data=request.POST, instance=the_estate)
+        if form.is_valid():
+            form.save()
+            return redirect('estate_overview', id=id)
+    else:
+        form = UpdateEstateForm(instance=the_estate)
+
+    context = {
+        'form': form,
+        'id': id
+    }
+    return render(request, 'estates/update_estate.html', context)
