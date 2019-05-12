@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'estates.apps.EstatesConfig',
-    'users.apps.UsersConfig'
+    'users.apps.UsersConfig',
+    'user.apps.UserConfig',
 ]
 
 MIDDLEWARE = [
@@ -129,4 +130,5 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_REDIRECT_URL = '/user/profile'
+LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/user/login'

@@ -21,4 +21,5 @@ urlpatterns = [
     path('estates/', include('estates.urls')),
     path('users/', include('users.urls')),
     path('admin/', admin.site.urls),
+    path('user/', include('user.urls'))
 ]
