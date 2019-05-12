@@ -16,7 +16,19 @@ p {
     color: #370003 !important;
 }
 
+.footer-text {
+    color: #FFFFFF;
+}
 
+a.footer-text:link, a.footer-text:visited {
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+a.footer-text:hover, a.footer-text:active {
+    font-weight: bolder;
+    color: #FB8F2B;
+}
 
  #navBarSearchWidth {
      width:300px !important;
@@ -54,6 +66,14 @@ p {
     /*height: 550px;*/
     /*width: 1200px;*/
 }
+
+.head-foot-colors {
+    background-color: #930416;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+}
+
 
  .my_color_palette {
      color: #930416;

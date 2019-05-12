@@ -2,27 +2,11 @@
 
 {% block content %}
 
-    <div class="estates">
-        <div class="container">
-            <div class="row">
-                {% for estate in estates %}
-                    {% include 'estates/estate_single.html' with estate=estate %}
-                {% endfor %}
-            </div>
-        </div>
+    <div class="row estates">
+        {% for estate in estates %}
+            {% include 'estates/estate_single.html' with estate=estate %}
+        {% endfor %}
     </div>
-
-{#    <div class="estates">#}
-{#        <div class="container">#}
-{#            <div class="row">#}
-{#                {% for estate in estates %}#}
-{#                    {% include 'estates/estate_single.html' with estate=estate %}#}
-{#                {% endfor %}#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-
-
 
 {% endblock content %}
 

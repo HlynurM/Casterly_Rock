@@ -12,10 +12,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <!--/Fontawesome token myndir fra bootstrap heimasidunni-->
-{#    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"#}
-{#          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">#}
-
     <!--/Fontawesome token myndir -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -23,12 +19,12 @@
     <!--/Our own stylesheet 'css/styles.css' -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
-    <title>Breyta grunn titil med skriftu</title>
+    <title>Casterly Rock</title>
 </head>
 <body>
 
 <!--/ NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #A32927">
+<nav class="navbar navbar-expand-lg navbar-dark head-foot-colors">
 
     <a class="navbar-brand" href="/">CASTERLY</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -36,14 +32,20 @@
         <span class="navbar-toggler-icon">hellow</span>
     </button>
 
-
+    <!--/ SEARCH BAR -->
     <form class="form-inline my-2 my-lg-0">
         <div class="input-group">
             <input class="form-control input-mini" type="search" placeholder="Leita: götuheiti, póstnúmer"
                    aria-label="Search" aria-describedby="basic-addon2" name="leita" id="search-bar">
             <div class="input-group-append">
-                <button class="btn btn-outline-light" type="submit" id="search-button">
+                <button class="btn btn-outline-light" type="submit" id="search-button" alt="search">
                     <span class="fas fa-search" id=""></span>
+                </button>
+            </div>
+            <!--/ FILTER ICON BELOW -->
+            <div class="input-group-append">
+                <button class="btn btn-outline-light" type="submit" id="filter-button" alt="filter">
+                    <span class="fas fa-filter" id=""></span>
                 </button>
             </div>
         </div>
@@ -86,6 +88,55 @@
 
     </div>
 </div>
+
+
+<!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-0 head-foot-colors">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Social buttons -->
+    <ul class="list-unstyled list-inline text-center footer-text">
+      <li class="list-inline-item">
+        <a class="btn-floating btn-fb mx-1">
+          <i class="fab fa-facebook-f"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-tw mx-1">
+          <i class="fab fa-twitter"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-gplus mx-1">
+          <i class="fab fa-google-plus-g"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-li mx-1">
+          <i class="fab fa-linkedin-in"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-dribbble mx-1">
+          <i class="fab fa-dribbble"> </i>
+        </a>
+      </li>
+    </ul>
+    <!-- Social buttons -->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3 footer-text">© 2019 Copyright:
+    <a href="https://mdbootstrap.com/education/bootstrap/"> Casterly Rock Fasteignamiðlun</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 
 
 <!--/ Optional JavaScript -->
