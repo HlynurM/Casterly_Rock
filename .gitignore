@@ -1,0 +1,14 @@
+# Virtualenv related
+bin/
+include/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+.idea
+.idea/workspace.xml
+
