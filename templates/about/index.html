@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            {% for about in about %}
+                {% include 'about/us.html' with about=about %}
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}
+
+
+

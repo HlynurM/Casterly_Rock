@@ -102,8 +102,8 @@ INSERT INTO Seller (sID, uID, aID, crID) VALUES (4,8,12,8);
 INSERT INTO Seller (sID, uID, aID, crID) VALUES (5,9,13,9);
 		
 
-INSERT INTO Administrator (adID, uID) VALUES (5,10);
-INSERT INTO Administrator (adID, uID) VALUES (5,11);
+INSERT INTO Administrator (adID, uID) VALUES (1,10);
+INSERT INTO Administrator (adID, uID) VALUES (2,11);
 
 
 -- motte and bailey castle, the stone keep castle, and the concentric castle. - búa til nýja töflu fyrir þessar upplýsingar

@@ -1,10 +1,10 @@
 -- kl. 10.43 - 11.5.2019
 
-DROP TABLE IF EXISTS Kingdom cascade;
-DROP TABLE IF EXISTS RegionCode cascade;
-DROP TABLE IF EXISTS Residence cascade;
+DROP TABLE IF EXISTS Kingdoms cascade;
+DROP TABLE IF EXISTS RegionCodes cascade;
+DROP TABLE IF EXISTS Residences cascade;
 DROP TABLE IF EXISTS CreditCard cascade;
-DROP TABLE IF EXISTS Users cascade;
+DROP TABLE IF EXISTS Persons cascade;
 DROP TABLE IF EXISTS Buyer cascade;
 DROP TABLE IF EXISTS Seller cascade;
 DROP TABLE IF EXISTS Administrator cascade;
@@ -12,37 +12,37 @@ DROP TABLE IF EXISTS Estate cascade;
 DROP TABLE IF EXISTS Buys cascade;
 
 
-CREATE TABLE Kingdom(
+CREATE TABLE Kingdoms(
     kID	serial,
     NAME VARCHAR(50),
     PRIMARY KEY(kID)
 );
 		
 		
-CREATE TABLE RegionCode(
+CREATE TABLE RegionCodes(
     rID INT,	
     PRIMARY KEY(rID)
 );
 		
 		
-CREATE TABLE Residence(
+CREATE TABLE Residences(
     aID	SERIAL,
-    Residence VARCHAR(50),
+    Residences VARCHAR(50),
     rID	INT,
     kID	INT,
     PRIMARY KEY(aID),
-    FOREIGN KEY (rID) REFERENCES RegionCode,
-    FOREIGN KEY (kID) REFERENCES Kingdom
+    FOREIGN KEY (rID) REFERENCES RegionCodes,
+    FOREIGN KEY (kID) REFERENCES Kingdoms
 );
 		
 		
-CREATE TABLE CreditCard(
+CREATE TABLE CreditCards(
     crID SERIAL,
     crNumber VARCHAR(19),
     PRIMARY KEY (crID)
 );
 
-CREATE TABLE Users(
+CREATE TABLE Persons(
     uID	serial,
     FirstName VARCHAR(30),
     Surname	VARCHAR(30),
@@ -53,38 +53,38 @@ CREATE TABLE Users(
 );
 		
 		
-CREATE TABLE Buyer(
+CREATE TABLE Buyers(
     bID	SERIAL,
     uID INT,
 	aID INT,
 	crID INt,
     PRIMARY KEY(bID),
-    FOREIGN KEY (uID) REFERENCES Users,
-	FOREIGN KEY (crID) REFERENCES CreditCard,
-    FOREIGN KEY (aID) REFERENCES Residence
+    FOREIGN KEY (uID) REFERENCES Persons,
+	FOREIGN KEY (crID) REFERENCES CreditCards,
+    FOREIGN KEY (aID) REFERENCES Residences
 );
 		
 		
-CREATE TABLE Seller(
+CREATE TABLE Sellers(
     sID	SERIAL,
     uID	INT,
 	aID INT,
     crID INT,
     PRIMARY KEY(sID),
-    FOREIGN KEY (uID) REFERENCES Users,
+    FOREIGN KEY (uID) REFERENCES Persons,
 	FOREIGN KEY (crID) REFERENCES CreditCard,
-    FOREIGN KEY (aID) REFERENCES Residence
+    FOREIGN KEY (aID) REFERENCES Residences
 );
 		
 		
-CREATE TABLE Administrator(
+CREATE TABLE Administrators(
     adID SERIAL,
     uID	INT,
     PRIMARY KEY(adID),
-	FOREIGN KEY (uID) REFERENCES Users
+	FOREIGN KEY (uID) REFERENCES Persons
 );		
 
-CREATE TABLE Estate(
+CREATE TABLE Estates(
     eID	SERIAL,
     type VARCHAR(30), --þarf að vera sér tafla
     squareMeters INT,
@@ -94,7 +94,7 @@ CREATE TABLE Estate(
     aID	INT,
     sID	INT,
 	PRIMARY KEY (eID),
-    FOREIGN KEY (aID) REFERENCES Residence,
+    FOREIGN KEY (aID) REFERENCES Residences,
     FOREIGN KEY (sID) REFERENCES Seller
 );
 		
