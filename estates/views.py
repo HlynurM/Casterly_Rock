@@ -8,17 +8,16 @@ def index(request):
     # TODO: Make the search button work properly
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
-        estates = [{
+        estates = [ {
             'id': x.id,
             'name': x.name,
             'description': x.description,
             'price': x.price,
-            'firstImage': x.estateimage_set.first().image
-        } for x in Estates.objects.filter(name__icontains=search_filter).values()]
-        return JsonResponse({'data': estates})
-    context = {
-        'estates': Estates.objects.all().order_by('name')
-    }
+            'firstImage': x.estatesimage_set.first().image
+        } for x in Estates.objects.filter(name__icontains=search_filter)]
+        # print(estates)
+        return JsonResponse({ 'data': estates })
+    context = { 'estates': Estates.objects.all().order_by('name') }
     return render(request, 'estates/index.html', context)
 
 
