@@ -3,13 +3,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from user.forms.profile_form import ProfileForm
+from user.forms.register_form import UserRegisterForm
 from user.models import Profile
 from django.contrib import messages
 
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(data = request.POST)
+        form = UserRegisterForm(data = request.POST)
         if form.is_valid():
             username = form.cleaned_data.get('username')
             messages.success(request, f'Notandi {username} skráður!')
@@ -20,6 +21,7 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'user/register.html', {
+<<<<<<< HEAD
         'form': form
     })
 
@@ -28,6 +30,11 @@ def register(request):
 # messages.success
 # messages.warning
 # messages.error
+=======
+        'form': UserRegisterForm()
+    })
+
+>>>>>>> ariel_2
 
 def profile(request):
     profile = Profile.objects.filter(user = request.user).first()
