@@ -1,7 +1,6 @@
 
 # Create your views here.
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
 from user.forms.profile_form import ProfileForm
 from user.forms.register_form import UserRegisterForm
 from user.models import Profile
@@ -19,9 +18,8 @@ def register(request):
         else:
             messages.error(request, f'Villa við skráningu! Vinsamlegast fylgið leiðbeiningum')
     else:
-        form = UserCreationForm()
+        form = UserRegisterForm()
     return render(request, 'user/register.html', {
-<<<<<<< HEAD
         'form': form
     })
 
@@ -30,11 +28,6 @@ def register(request):
 # messages.success
 # messages.warning
 # messages.error
-=======
-        'form': UserRegisterForm()
-    })
-
->>>>>>> ariel_2
 
 def profile(request):
     profile = Profile.objects.filter(user = request.user).first()
