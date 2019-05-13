@@ -14,5 +14,4 @@ class ProfileForm(ModelForm):
             'kingdom': widgets.Select(attrs = { 'class': 'form-control' }),
             'estates': widgets.Select(attrs = { 'class': 'form-control' }),
             'bio': widgets.TextInput(attrs={'class': 'form-control'}),
-
         }

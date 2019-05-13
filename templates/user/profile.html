@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 {% block content%}
 
-    <h1>User Profile</h1>
-    <p>{{ user.name }}</p>
+    <h1>Mitt Svæði</h1>
+    <h2> Notandi : {{  user.username  }} </h2>
+    <h2>Hæ {{ user.first_name }} !</h2>
+    <h4><strong>Hér getur þú séð yfirlit yfir þínar eignir, breytt lykilorði og fleira</strong></h4>
+
     <form class="form form-horizontal" method="post">
         {% csrf_token %}
         {{ form }}
+        <h1></h1>
         <input type="submit" class="btn btn-primary" value="Save" />
 
     </form>
