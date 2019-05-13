@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
+from django.db.models import Q
 from estates.forms.new_estate_form import *
 from estates.models import Estates, EstatesImage
 
@@ -7,14 +8,19 @@ def index(request):
     '''Forsiduyfirlit'''
     # TODO: Make the search button work properly
     if 'search_filter' in request.GET:
-        search_filter = request.GET['search_filter']
+        search_filter = request.GET.get('search_filter', '')
         estates = [ {
             'id': x.id,
             'name': x.name,
             'description': x.description,
             'price': x.price,
             'firstImage': x.estatesimage_set.first().image
-        } for x in Estates.objects.filter(name__icontains=search_filter)]
+        } for x in Estates.objects.filter(
+            Q(name__icontains=search_filter) or
+            Q(description__icontains=search_filter) or
+            Q(address__region_code__icontains=search_filter) or
+            Q(address__street_name__icontains=search_filter)
+        )]
         # print(estates)
         return JsonResponse({ 'data': estates })
     context = { 'estates': Estates.objects.all().order_by('name') }

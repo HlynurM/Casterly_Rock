@@ -26,7 +26,7 @@ urlpatterns = [
 # urlpatterns = [
 #     path('', include('estates.urls')),
 #     path('estates/', include('estates.urls')),
-#     path('users/', include('users.urls')),
+#     path('temp/', include('temp.urls')),
 #     path('admin/', admin.site.urls),
 #     path('user/', include('user.urls'))
 # ]

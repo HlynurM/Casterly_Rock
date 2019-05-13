@@ -45,6 +45,20 @@ p {
     height: auto;
 }
 
+.profile-pic {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    overflow: hidden;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-pic img {
+    height: auto;
+    width: auto;
+}
+
 .estate-img {
     width: 250px;
     transition: transform 1s ease-in;

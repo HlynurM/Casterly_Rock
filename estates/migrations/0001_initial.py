@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('users', '__first__'),
+        ('temp', '__first__'),
     ]
 
     operations = [
@@ -46,6 +46,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='estates',
             name='notendur',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='users.Users'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='temp.Users'),
         ),
     ]

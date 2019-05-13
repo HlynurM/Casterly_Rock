@@ -13,7 +13,7 @@ class CreateEstateForm(ModelForm):
             'description': widgets.TextInput(attrs={'class': 'form-control'}),
             'category': widgets.Select(attrs={'class': 'form-control'}),
             'price': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'notendur': widgets.Select(attrs={'class': 'form-control'}),
+            'user': widgets.Select(attrs={'class': 'form-control'}),
             'on_sale': widgets.CheckboxInput(attrs={'class': 'checkbox'})
         }
 
@@ -26,6 +26,6 @@ class UpdateEstateForm(ModelForm):
             'description': widgets.TextInput(attrs={'class': 'form-control'}),
             'category': widgets.Select(attrs={'class': 'form-control'}),
             'price': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'notendur': widgets.Select(attrs={'class': 'form-control'}),
+            'user': widgets.Select(attrs={'class': 'form-control'}),
             'on_sale': widgets.CheckboxInput(attrs={'class': 'checkbox'})
         }
