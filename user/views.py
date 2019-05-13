@@ -11,7 +11,7 @@ from django.contrib import messages
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(data = request.POST)
+        form = UserRegisterForm(data = request.POST)
         if form.is_valid():
             username = form.cleaned_data.get('username')
             messages.success(request, f'Notandi {username} skráður!')
@@ -22,8 +22,9 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'user/register.html', {
-        'form': form
+        'form': UserRegisterForm()
     })
+
 
 def profile(request):
     profile = Profile.objects.filter(user = request.user).first()
