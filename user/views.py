@@ -45,6 +45,6 @@ def profile(request):
     })
 
 def index(request):
-    return render(request, 'users/index.html', {
-        'users':  Users.objects.all()
+    return render(request, 'user/index.html', {
+        'user':  Users.objects.all()
     })
