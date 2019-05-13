@@ -83,12 +83,16 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{% url 'estates-index' %}">FORSÍÐA</a>
-                <a class="dropdown-item" href="{% url 'profile' %}">MITT SVÆÐI</a>
+                {% if user.is_authenticated %}
+                    <a class="dropdown-item" href="{% url 'profile' %}">MITT SVÆÐI</a>
+                {% endif %}
                 <a class="dropdown-item" href="{% url 'add_new_estate' %}">SKRÁ NÝJA EIGN</a>
                 <a class="dropdown-item" href="#">UM OKKUR</a>
                 <div class="dropdown-divider">
                 </div>
-                <a class="dropdown-item" href="#">SKRÁ ÚT</a>
+                {% if user.is_authenticated %}
+                    <a class="dropdown-item" href='logout'>SKRÁ ÚT</a>
+                {% endif %}
             </div>
         </li>
         </ul>
