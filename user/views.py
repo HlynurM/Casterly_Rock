@@ -44,3 +44,7 @@ def profile(request):
         'form': ProfileForm(instance = profile)
     })
 
+def index(request):
+    return render(request, 'users/index.html', {
+        'users':  Users.objects.all()
+    })
