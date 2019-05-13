@@ -1,23 +1,21 @@
-{#<div class="well estate">#}
-    <div class="col-md-4">
-        <div class="card mb-4 box-shadow well">
-            <a href="/estates/{{ estate.id }}">
-                <img class="estate-img" src="{{ estate.estatesimage_set.first.image }}" alt="{{ estate.name }}"/>
-                <div class="card-body">
-                    <h4 class="card-address">{{ estate.name }}</h4>
-                    <h3 class="card-price">{{ estate.price }}</h3>
-                    <p class="card-short-description">
-                        {{ estate.description }}
-                    </p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <a href="/estates/{{ estate.id }}" class="btn btn-sm btn-outline-danger">View</a>
-
-                        </div>
-                        <small class="text-muted">9 mins</small>
-                    </div>
+<div class="col-md-4">
+    <div class="card mb-4 box-shadow well">
+        <a href="/estates/{{ estate.id }}">
+            <div class="thumbnail">
+                {#            <div class="estate-thumb" style="background-image: {{ estate.estatesimage_set.first.image }}"></div>#}
+                <img class="" src="{{ estate.estatesimage_set.first.image }}" alt="{{ estate.name }}"/>
+            </div>
+            <div class="card-body">
+                <h4 class="card-address">{{ estate.name }}</h4>
+                <h3 class="card-price">{{ estate.price }} <i class="fas fa-coins gold" color="#FB8F2B"></i></h3>
+                {#                <p class="card-short-description">#}
+                {#                    {{ estate.description }}#}
+                {#                </p>#}
+                <p>stutt lysing a fasteign</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted text-right"><i class="far fa-star gold"></i></small>
                 </div>
-            </a>
-        </div>
+            </div>
+        </a>
     </div>
-{#</div>#}
+</div>

@@ -16,6 +16,49 @@ p {
     color: #370003 !important;
 }
 
+#gold {
+    font-weight: bold;
+    color: #FB8F2B;
+}
+
+.thumbnail {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.thumbnail img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.thumbnail img.portrait {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+.estate-img {
+    width: 250px;
+    transition: transform 1s ease-in;
+    max-height: 250px;
+    max-width: 250px;
+}
+
+.estate-thumb {
+    height: 250px;
+    width: 300px;
+    background-size: cover;
+}
+
+
 .footer-text {
     color: #FFFFFF;
 }
@@ -30,16 +73,10 @@ a.footer-text:hover, a.footer-text:active {
     color: #FB8F2B;
 }
 
- #navBarSearchWidth {
-     width:300px !important;
- }
-
-.estate-img {
-    width:250px;
-    transition: transform 1s ease-in;
-    max-height: 250px;
-    max-width: 250px;
+#navBarSearchWidth {
+    width: 300px !important;
 }
+
 
 .users {
     display: grid;
@@ -51,7 +88,8 @@ a.footer-text:hover, a.footer-text:active {
     justify-items: center;
     align-items: center;
     border-radius: 0;
-    margin: 0;}
+    margin: 0;
+}
 
 .user .user-img {
     width: 200px;
@@ -74,18 +112,25 @@ a.footer-text:hover, a.footer-text:active {
     font-weight: bold;
 }
 
+.container {padding:80px;}
+.form-control {width:120px;}
+.popover {max-width:400px;}
 
- .my_color_palette {
-     color: #930416;
-     color: #64000D;
-     color: #370003;
-     color: #A32927;
-     color: #EAB64D;
-     color: #FB8F2B;
-     color: #2794A3;
-     color: #FFFFFF;
-     color: #BEBEBE;
-     color: #838383;
-     color: #4A4A4A;
-     color: #1F1F1F;
- }
+#popover-content-filter > * {
+  background-color:#ff0000 !important;
+}
+
+.my_color_palette {
+    color: #930416;
+    color: #64000D;
+    color: #370003;
+    color: #A32927;
+    color: #EAB64D;
+    color: #FB8F2B;
+    color: #2794A3;
+    color: #FFFFFF;
+    color: #BEBEBE;
+    color: #838383;
+    color: #4A4A4A;
+    color: #1F1F1F;
+}
