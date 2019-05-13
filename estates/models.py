@@ -1,40 +1,6 @@
 from django.db import models
-
-# from user.models import Users
-
-
-# class EstatesCategory(models.Model):
-#     name = models.CharField(max_length=255)
-#
-#     def __str__(self):
-#         return self.name
-#
-#
-# class Estates(models.Model):
-#     name = models.CharField(max_length=255)
-#     description = models.CharField(max_length=999, blank=True)
-#     category = models.ForeignKey(EstatesCategory, on_delete=models.CASCADE)
-#     price = models.FloatField()
-#     on_sale = models.BooleanField()
-#     # user = models.ForeignKey('user.Users', on_delete=models.CASCADE)
-#
-#     def __str__(self):
-#         """Returns the name of the object"""
-#         return self.name
-#
-#
-# class EstatesImage(models.Model):
-#     image = models.CharField(max_length=999)
-#     estate = models.ForeignKey(Estates, on_delete=models.CASCADE)
-#
-#     def __str__(self):
-#         """Returns the path and name instead of the object referance"""
-#         return self.image
-
-
-#============================================================================
-#============ [ REAL DATABASE ] =============================================
-#============================================================================
+from user.models import *
+from django.contrib.auth.models import User
 
 
 class Kingdom(models.Model):
@@ -75,7 +41,7 @@ class Estates(models.Model):
     category = models.ForeignKey(Estate_category, on_delete=models.CASCADE)
     address = models.ForeignKey(Address, on_delete=models.CASCADE)
     on_sale = models.BooleanField()
-    user = models.ForeignKey('temp.Users', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -104,5 +70,5 @@ class Estate_details(models.Model):
 
 
 class Star_rating(models.Model):
-    user = models.ForeignKey('temp.Users', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     estate = models.ForeignKey(Estates, on_delete=models.CASCADE)
