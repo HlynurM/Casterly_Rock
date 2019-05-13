@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
 from django.db.models import Q
 from estates.forms.new_estate_form import *
-from estates.models import Estates, EstatesImage
+from estates.models import *
 
 def index(request):
     '''Forsiduyfirlit'''

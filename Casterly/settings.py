@@ -77,12 +77,23 @@ WSGI_APPLICATION = 'Casterly.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'joknclag',
+#         'USER': 'joknclag',
+#         'PASSWORD': 'Zk8_41IyDyV_bse88hb32jQsEAucyPkF',
+#         'HOST': 'balarama.db.elephantsql.com',
+#         'PORT': '5432'
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'joknclag',
-        'USER': 'joknclag',
-        'PASSWORD': 'Zk8_41IyDyV_bse88hb32jQsEAucyPkF',
+        'NAME': 'svujavyv',
+        'USER': 'svujavyv',
+        'PASSWORD': 'D6IMZ6uywV876IJyoypUmXxCPkuESrTo',
         'HOST': 'balarama.db.elephantsql.com',
         'PORT': '5432'
     }
