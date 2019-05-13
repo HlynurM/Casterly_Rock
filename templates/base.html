@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
     <title>Casterly Rock</title>
+
 </head>
 <body>
 
@@ -152,9 +153,14 @@
 
 <div class="container">
     <div class="globus">
-
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
         {% block content %}
-
         {% endblock content %}
 
     </div>
