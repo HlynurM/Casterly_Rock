@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'estates.apps.EstatesConfig',
     'temp.apps.UsersConfig',
     'user.apps.UserConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,5 @@ STATICFILES_DIRS = [
 
 LOGIN_REDIRECT_URL = '/user/profile'
 LOGIN_URL = '/user/login'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
