@@ -14,7 +14,7 @@ def index(request):
             'name': x.name,
             'description': x.description,
             'price': x.price,
-            'firstImage': x.estatesimage_set.first().image
+            'firstImage': x.estateimage_set.first().image
         } for x in Estates.objects.filter(
             Q(name__icontains=search_filter) or
             Q(description__icontains=search_filter) or
@@ -39,7 +39,7 @@ def add_new_estate(request):
         form = CreateEstateForm(data=request.POST)
         if form.is_valid():
             estate = form.save()    #save the form into database
-            estate_image = EstatesImage(image=request.POST['image'], estate=estate)
+            estate_image = EstateImage(image=request.POST['image'], estate=estate)
             estate_image.save()     #save the image into database
             return redirect('estates-index')
     else:

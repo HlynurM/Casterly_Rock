@@ -107,16 +107,16 @@
     <!--/ THIS GOES TO THE RIGHT SIDE -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <li class="navbar-nav ml-auto">
-        {% if user.is_authenticated %}
-            <li class="nav-item ">
-                <a class="nav-link" href="{% url 'add_new_estate' %}">SKRÁ NÝJA EIGN <span
-                        class="sr-only">(current)</span></a>
-            </li>
-
+            {% if user.is_authenticated %}
+                <li class="nav-item head-foot-colors">
+                    <a class="nav-link" href="{% url 'add_new_estate' %}">SKRÁ NÝJA EIGN <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <i class="fas fa-user"></i>
                 <p class="head-foot-colors">{{ user.profile.user|upper }}</p>
                 <img src="{{ user.profile.profile_image }}" alt="description" class="profile-pic"/>
 
-        {% else %}
+            {% else %}
 
         <li class="nav-item ">
             <li>
@@ -172,7 +172,7 @@
 
 
 <!-- Footer -->
-<footer class="page-footer font-small special-color-dark pt-0 head-foot-colors">
+<footer class="page-footer font-small special-color-dark pt-0 head-foot-colors my-foot">
 
   <!-- Footer Elements -->
   <div class="container">
@@ -211,8 +211,8 @@
   <!-- Footer Elements -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3 footer-text">© 2019 Copyright:
-    <a href="https://mdbootstrap.com/education/bootstrap/"> Casterly Rock Fasteignamiðlun</a>
+  <div class="footer-copyright text-center py-3 my-foot">© 2019 Copyright:
+    <a href="https://mdbootstrap.com/education/bootstrap/" class="my-foot"> Casterly Rock Fasteignamiðlun</a>
   </div>
   <!-- Copyright -->
 

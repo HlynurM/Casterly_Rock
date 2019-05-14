@@ -7,36 +7,40 @@ h1, h2, h3, h4 h5, h6 {
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
     font-style: normal;
     font-weight: bold;
-    color: #A32927 !important;
 }
 
 p {
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
     font-style: normal;
-    color: #370003 !important;
+    /*color: #370003 !important;*/
 }
 
-#gold {
+.gold {
     font-weight: bold;
     color: #FB8F2B;
 }
 
 .thumbnail {
     position: relative;
-    width: 300px;
-    height: 200px;
+    width: 249px;
+    height: 150px;
     overflow: hidden;
+    border-radius: 1%;
+    text-align: center;
 }
 
 .thumbnail img {
     position: absolute;
     left: 50%;
     top: 50%;
-    height: 100%;
-    width: auto;
+    /*height: 100%;*/
+    /*width: auto;*/
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .thumbnail img.portrait {
@@ -59,6 +63,15 @@ p {
     width: auto;
 }
 
+.estate_box {
+    width: 250px;
+    border-style: solid;
+    border-width: thin;
+    border-color: #dcdcdc;
+    border-radius: 1%;
+    background-color: #fdfdfd;
+}
+
 .estate-img {
     width: 250px;
     transition: transform 1s ease-in;
@@ -72,17 +85,31 @@ p {
     background-size: cover;
 }
 
+.globus {
 
-.footer-text {
-    color: #FFFFFF;
 }
 
-a.footer-text:link, a.footer-text:visited {
+.globus a, .globus a:visited {
+    color: #424242;
+    text-decoration: none;
+}
+
+.globus a:hover, .globus a:active {
+    color: #6c6c6c;
+    border-width: medium;
+    text-decoration: none;
+}
+
+.my-foot {
+    /*color: #FFFFFF;*/
+}
+
+.my-foot a:link, a:visited {
     font-weight: bold;
     color: #FFFFFF;
 }
 
-a.footer-text:hover, a.footer-text:active {
+ a.my-foot:hover, a:active {
     font-weight: bolder;
     color: #FB8F2B;
 }
@@ -115,15 +142,14 @@ a.footer-text:hover, a.footer-text:active {
 
 .well {
     background-color: #fdfdfd;
-    /*height: 550px;*/
-    /*width: 1200px;*/
 }
 
 .head-foot-colors {
-    background-color: #930416;
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
     font-style: normal;
     font-weight: bold;
+    color: #FFFFFF;
+    background-color: #930416;
 }
 
 .container {padding:80px;}

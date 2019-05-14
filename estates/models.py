@@ -10,23 +10,23 @@ class Kingdom(models.Model):
         return self.name
 
 
-class Region_code(models.Model):
+class RegionCode(models.Model):
     kingdom = models.ForeignKey(Kingdom, on_delete=models.CASCADE)
     region_code = models.IntegerField()
 
     def __str__(self):
-        return self.region_code
+        return str(self.region_code)
 
 
 class Address(models.Model):
-    region_code = models.ForeignKey(Region_code, on_delete=models.CASCADE)
+    region_code = models.ForeignKey(RegionCode, on_delete=models.CASCADE)
     street_name = models.CharField(max_length=255)
 
     def __str__(self):
         return self.street_name
 
 
-class Estate_category(models.Model):
+class EstateCategory(models.Model):
     name = models.CharField(max_length=255)
 
     def __str__(self):
@@ -36,18 +36,18 @@ class Estate_category(models.Model):
 class Estates(models.Model):
     name = models.CharField(max_length=255)
     short_description = models.CharField(max_length=80, blank=True)
-    description = models.CharField(max_length=999, blank=True)
+    description = models.TextField(blank=True)
     price = models.FloatField()
-    category = models.ForeignKey(Estate_category, on_delete=models.CASCADE)
-    address = models.ForeignKey(Address, on_delete=models.CASCADE)
+    category = models.ForeignKey(EstateCategory, on_delete=models.CASCADE)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE, blank=True)
     on_sale = models.BooleanField()
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
 
 
-class Estate_image(models.Model):
+class EstateImage(models.Model):
     image = models.CharField(max_length=999)
     estate = models.ForeignKey(Estates, on_delete=models.CASCADE)
 
@@ -55,7 +55,7 @@ class Estate_image(models.Model):
         return self.image
 
 
-class Estate_details(models.Model):
+class EstateDetails(models.Model):
     estate = models.ForeignKey(Estates, on_delete=models.CASCADE)
     size = models.IntegerField()
     rooms = models.IntegerField()
@@ -69,6 +69,6 @@ class Estate_details(models.Model):
     drawbridge = models.BooleanField()
 
 
-class Star_rating(models.Model):
+class StarRating(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     estate = models.ForeignKey(Estates, on_delete=models.CASCADE)

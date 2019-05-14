@@ -2,13 +2,15 @@
 
 {% block content %}
 
-    <h2>{{ estate.name }}</h2>
-    <h1>Price: ${{ estate.price }}</h1>
+    <h3>{{ estate.name }}</h3>
+    <h2>Price: ${{ estate.price }}</h2>
     <p>{{ estate.description }}</p>
-    <p>Current owner: {{ estate.notendur.name }}</p>
+    <p>Address: {{ estate.address.street_name }}, {{ estate.address.region_code }}</p>
+    <p>Kingdom: {{ estate.address.region_code.kingdom }}</p>
+    <p>Current owner: {{ estate.user.get_full_name }}</p>
 
     {# TODO:   Fara i gegnum allar myndir#}
-    {% for photo in estate.estatesimage_set.all %}
+    {% for photo in estate.estateimage_set.all %}
 {#        <div class="thumbnail">#}
             <img src="{{ photo.image }}" class="estate-img thumbnail"/>
 {#        </div>#}
