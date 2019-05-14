@@ -94,12 +94,17 @@ p {
 .dropdown .dropdown-menu .dropdown-item:link, .dropdown .dropdown-menu .dropdown-item:visited {
     background-color: #FFFFFF !important;
     color: #4A4A4A;
+    font-weight: bold;
 }
 
 .dropdown .dropdown-menu .dropdown-item:active, .dropdown .dropdown-menu .dropdown-item:hover {
-    background-color: #A32927 !important;
-    color: #FFFFFF;
+    background-color: #f1dfdf !important;
+    border-right: 10px solid #A32927;
+    color: #4A4A4A;
+    font-weight: bold;
 }
+
+
 
 .globus {
 
