@@ -49,16 +49,22 @@ p {
     height: auto;
 }
 
+.profile-name {
+    line-height: 40px;
+}
+
 .profile-pic {
+    float: inherit;
     position: relative;
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     overflow: hidden;
     border-radius: 50%;
     object-fit: cover;
 }
 
 .profile-pic img {
+    float: right;
     height: auto;
     width: auto;
 }
@@ -85,11 +91,33 @@ p {
     background-size: cover;
 }
 
+.dropdown .dropdown-menu .dropdown-item:link, .dropdown .dropdown-menu .dropdown-item:visited {
+    background-color: #FFFFFF !important;
+    color: #4A4A4A;
+}
+
+.dropdown .dropdown-menu .dropdown-item:active, .dropdown .dropdown-menu .dropdown-item:hover {
+    background-color: #A32927 !important;
+    color: #FFFFFF;
+}
+
 .globus {
 
 }
 
-.globus a, .globus a:visited {
+.navbar a:link, .navbar a:visited {
+    color: #FFFFFF;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.navbar a:hover, .navbar a:active {
+    color: #d7d7d7;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.globus a:link, .globus a:visited {
     color: #424242;
     text-decoration: none;
 }
@@ -104,14 +132,14 @@ p {
     /*color: #FFFFFF;*/
 }
 
-.my-foot a:link, a:visited {
+.my-foot a:link,.my-foot  a:visited {
     font-weight: bold;
     color: #FFFFFF;
 }
 
- a.my-foot:hover, a:active {
+ a.my-foot:hover, .my-foot a:active {
     font-weight: bolder;
-    color: #FB8F2B;
+    color: #EAB64D;
 }
 
 #navBarSearchWidth {
