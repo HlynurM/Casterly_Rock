@@ -11,10 +11,11 @@ class ProfileForm(ModelForm):
             'phone': widgets.TextInput(attrs={'class': 'form-control'}),
             'street': widgets.TextInput(attrs={ 'class': 'form-control' }),
             'region_code': widgets.Select(attrs = { 'class': 'form-control' }),
-            'kingdom': widgets.Select(attrs = { 'class': 'form-control' }),
+            # 'kingdom': widgets.Select(attrs = { 'class': 'form-control' }),
             'estates': widgets.Select(attrs = { 'class': 'form-control' }),
             'bio': widgets.TextInput(attrs={'class': 'form-control'}),
         }
+
 
 # class ProfileForm(ModelForm):
 #     class Meta:
