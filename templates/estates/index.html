@@ -2,6 +2,31 @@
 
 {% block content %}
 
+            <!--/ SEARCH BAR -->
+    <form class="form-inline my-2 my-lg-0">
+        <div class="input-group">
+            <input class="form-control input-mini" type="search" placeholder="Orðaleit"
+                   aria-label="Search" aria-describedby="basic-addon2" name="leita" id="search-bar">
+            <div class="input-group-append">
+                <button class="btn btn-outline-light" type="submit" id="search-button" alt="search">
+                    <span class="fas fa-search" id=""></span>
+                </button>
+            </div>
+
+
+            <div class="input-group-append">
+                <select id="priceDropdown">
+                    <option value="">Öll verð</option>
+                    <option value="1">0-2</option>
+                    <option value="2">2-4</option>
+                    <option value="3">4-6</option>
+                    <option value="4">8-10</option>
+                    <option value="5">10 eða meira</option>
+                </select>
+            </div>
+        </div>
+    </form>
+
     <div class="row estates">
         {% for estate in estates %}
             {% include 'estates/estate_single.html' with estate=estate %}
