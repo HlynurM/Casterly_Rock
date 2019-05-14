@@ -3,39 +3,68 @@
 {% block content %}
 
             <!--/ SEARCH BAR -->
-    <form class="form-inline my-2 my-lg-0">
-        <div class="input-group">
-            <input class="form-control input-mini" type="search" placeholder="Orðaleit"
-                   aria-label="Search" aria-describedby="basic-addon2" name="leita" id="search-bar">
-            <div class="input-group-append">
-                <button class="btn btn-outline-light" type="submit" id="search-button" alt="search">
-                    <span class="fas fa-search" id=""></span>
-                </button>
-            </div>
+    <form style="background-color: #d0000e">
+
+        <input  placeholder="Orðaleit" id="search-bar">
+        <br>
+        <select id="priceDropdown">
+            <option value="">Verð (m.kr)</option>
+            <option value="1">0-200</option>
+            <option value="2">200-400</option>
+            <option value="3">400-600</option>
+            <option value="4">600-800</option>
+            <option value="5">800 eða fl.</option>
+        </select>
+
+        <select id="sizeDropdown">
+            <option value="">Fermetrar</option>
+            <option value="1">0-200</option>
+            <option value="2">200-400</option>
+            <option value="3">400-600</option>
+            <option value="4">600-800</option>
+            <option value="5">800 eða fl.</option>
+        </select>
+
+        <select id="roomsDropdown">
+            <option value="">Herbergi</option>
+            <option value="1">0-5</option>
+            <option value="2">5-10</option>
+            <option value="3">10-15</option>
+            <option value="4">15-20</option>
+            <option value="5">20 eða fl.</option>
+        </select>
+
+        <select id="floorsDropdown">
+            <option value="">Hæðir</option>
+            <option value="1">0-2</option>
+            <option value="2">2-4</option>
+            <option value="3">4-6</option>
+            <option value="4">8-10</option>
+            <option value="5">10 eða fl.</option>
+        </select>
+
+        <select id="towersDropdown">
+            <option value="">Turnafjöldi</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 eða fleiri</option>
+        </select>
+        <br>
+
+        <input type="checkbox" id="ballroomCheck"> Danssalur
+        <input type="checkbox" id="tower_officeCheck"> Skrifstofa í turni
+        <input type="checkbox" id="moatCheck"> Díki
+        <input type="checkbox" id="stablesCheck"> Hlaða
+        <input type="checkbox" id="dungeonCheck"> Dýflissa
+        <input type="checkbox" id="drawbridgeCheck"> Hengibrú
+        <br>
+
+        <button id="search-button">Leita</button>
 
 
-            <div class="input-group-append">
-                <select id="priceDropdown">
-                    <option value="">Öll verð</option>
-                    <option value="1">0-2</option>
-                    <option value="2">2-4</option>
-                    <option value="3">4-6</option>
-                    <option value="4">8-10</option>
-                    <option value="5">10 eða meira</option>
-                </select>
-            </div>
 
-                        <div class="input-group-append">
-                <select id="priceDropdown">
-                    <option value="">Öll verð</option>
-                    <option value="1">0-2</option>
-                    <option value="2">2-4</option>
-                    <option value="3">4-6</option>
-                    <option value="4">8-10</option>
-                    <option value="5">10 eða meira</option>
-                </select>
-            </div>
-        </div>
     </form>
 
     <div class="row estates">
