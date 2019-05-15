@@ -115,8 +115,8 @@ p {
 }
 
 .navbar a:hover, .navbar a:active {
-    color: #d7d7d7;
-    font-weight: bold;
+    color: #EAB64D;
+    font-weight: normal;
     text-decoration: none;
 }
 
@@ -178,8 +178,8 @@ p {
 .head-foot-colors {
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
     font-style: normal;
-    font-weight: bold;
-    color: #FFFFFF;
+    /*font-weight: bold;*/
+    /*color: #FFFFFF;*/
     background-color: #930416;
 }
 

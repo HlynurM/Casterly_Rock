@@ -6,13 +6,12 @@ from estates.models import Estates, EstateImage
 
 def index(request):
     '''Forsiduyfirlit'''
-    # TODO: Make the search button work properly
     if 'search_filter' in request.GET:
         search_filter = request.GET.get('search_filter', '')
         estates = [ {
             'id': x.id,
             'name': x.name,
-            'description': x.description,
+            'description': x.short_description,
             'price': x.price,
             'firstImage': x.estateimage_set.first().image
         } for x in Estates.objects.filter(
