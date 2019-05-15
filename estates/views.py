@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
 from django.db.models import Q
-from estates.forms.new_estate_form import CreateEstateForm, UpdateEstateForm
+from estates.forms.new_estate_form import CreateEstateForm, UpdateEstateForm, AddDetailsForm
 from estates.models import Estates, EstateImage, EstateDetails
 
 
@@ -39,19 +39,25 @@ def get_estate_by_id(request, id):
 
 def add_new_estate(request):
     if request.method == 'POST':
-        form = CreateEstateForm(data=request.POST)
-        if form.is_valid():
-            estate = form.save()  # save the form into database
+        add_estate_form = CreateEstateForm(data=request.POST)
+        add_details_form = AddDetailsForm(data=request.POST)
+
+        if add_estate_form.is_valid() and add_details_form.is_valid():
+            estate = add_estate_form.save()  # save the form into database
+            details = add_details_form.save(commit=False)
+            details.estate = estate
+            add_details_form.save()
+
             estate_image = EstateImage(image=request.POST['image'], estate=estate)
             estate_image.save()  # save the image into database
-            estate_details = EstateDetails(moat=request.POST['moat'], estate=estate)
-            estate_details.save()
             return redirect('estates-index')
     else:
-        form = CreateEstateForm()
+        add_estate_form = CreateEstateForm()
+        add_details_form = AddDetailsForm()
 
     context = {
-        'form': form
+        'add_estate_form': add_estate_form,
+        'add_details_form': add_details_form,
     }
     return render(request, 'estates/add_new_estate.html', context)
 

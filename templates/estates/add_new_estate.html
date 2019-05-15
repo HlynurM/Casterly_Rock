@@ -1,21 +1,38 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{#crispy_forms_field#}
+{#crispy_forms_filters#}
+{#crispy_forms_tags#}
+{#crispy_forms_utils#}
+{#{% load bootstrap %}#}
 {% block content %}
+
     <div class="offset-3 col-md-6">
+
         <form class="form form-horizontal" action="{% url 'add_new_estate' %}" method="post">
             {% csrf_token %}
+
             <div class="form-group">
-                {{ form|crispy }}
+
+{#                {{ form|crispy }}#}
+
+                {{ add_estate_form|crispy }}
+                {{ add_details_form|crispy }}
+
+                {#                {% for fields in form %}#}
+                {#                    <label>{{ fields.label_tag }}</label>#}
+                {#                    {{ fields }}#}
+                {#                {% endfor %}#}
 
                 <div class="text-right">
                     <input type="submit"
                            value="Create"
                            class="btn btn-danger"
-                           style="  clear:both;
-                            margin: 10px 0"
+                           style="clear:both; margin: 10px 0"
                     />
                 </div>
             </div>
         </form>
     </div>
+
 {% endblock content %}
