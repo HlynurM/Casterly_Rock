@@ -17,6 +17,7 @@
     {% endfor %}
 
     <div class="text-left">
+        <a href="{% url 'sale-index' estate.id %}" class="btn btn-outline-danger">Buy estate</a>
         <a href="{% url 'update_estate' estate.id %}" class="btn btn-outline-danger">Update information</a>
         <a href="{% url 'remove_estate' estate.id %}" class="btn btn-danger">Delete property</a>
     </div>

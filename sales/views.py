@@ -4,6 +4,22 @@ from django.shortcuts import render, get_object_or_404, redirect
 from sales.forms.new_sale import NewCreditCardForm
 from django.contrib import messages
 
+def index(request):
+    if request.method == 'POST':
+        form = CreateEstateForm(data=request.POST)
+        if form.is_valid():
+            estate = form.save()    #save the form into database
+            estate_image = EstateImage(image=request.POST['image'], estate=estate)
+            estate_image.save()     #save the image into database
+            return redirect('estates-index')
+    else:
+        form = CreateEstateForm()
+
+    context = {
+        'form': form
+    }
+    return render(request, 'estates/add_new_estate.html', context)
+
 
 # Create your views here.
 def new_sale(request):
@@ -22,3 +38,4 @@ def new_sale(request):
         'form': form
     }
     return render(request, 'sales/new_sale.html', context)
+

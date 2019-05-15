@@ -9,12 +9,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!--/ Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <!--/Fontawesome token myndir -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    {#<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">#}
 
     <!--/Our own stylesheet 'css/styles.css' -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
@@ -27,7 +31,8 @@
 <!--/ NAVBAR -->
 <nav class="navbar navbar-expand-sm navbar-dark head-foot-colors">
 
-    <a class="navbar-brand" href="/" title="Casterly Rock Home"><i class="fab fa-fort-awesome" style="font-size: 30px;"></i></a>
+    <a class="navbar-brand" href="/" title="Casterly Rock Home"><i class="fab fa-fort-awesome"
+                                                                   style="font-size: 30px;"></i></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -50,10 +55,19 @@
                         type="button"
                         id="filter"
                         alt="filter"
-                        >
+                        data-container="body"
+                        data-toggle="popover"
+                        data-placement="bottom"
+                        title="Hér má sía nánar"
+                        data-content="Þetta er núna virkur popover gluggi.">
+{#                        data-popover-content="#logout">#}
+                    <!--/Get vætanlega nýtt mér auka síðu fyrir data popover content -->
                     <span class="fas fa-filter" id=""></span>
                 </button>
             </div>
+{#            <div class="input-group-append">#}
+{#                <button id="popbutton" class="btn btn-outline-light" data-placement="bottom">pop up</button>#}
+{#            </div>#}
         </div>
     </form>
 
@@ -65,16 +79,17 @@
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active profile-name">
-{#                    <a class="nav-link profile-name" href="{% url 'profile' %}">#}
-                        {{ user.profile.user.get_full_name }}
-                    {% if user.profile.profile_image  %}
+                    {#                    <a class="nav-link profile-name" href="{% url 'profile' %}">#}
+                    {{ user.profile.user.get_full_name }}
+                    {% if user.profile.profile_image %}
                         <img src="{{ user.profile.profile_image }}" alt="description" class="profile-pic"/>
                     {% else %}
-                         <img src="http://simpleicon.com/wp-content/uploads/user1.png" alt="description" class="profile-pic"/>
+                        <img src="http://simpleicon.com/wp-content/uploads/user1.png" alt="description"
+                             class="profile-pic"/>
 
 
                     {% endif %}
-{#                    </a>#}
+                    {#                    </a>#}
                 </li>
             {% else %}
                 <li class="nav-item active">
@@ -88,7 +103,7 @@
             <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
-{#                    MENU#}
+                    {#                    MENU#}
                     <i class="fas fa-bars"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right text-lg-right" aria-labelledby="navbarDropdown">
@@ -109,13 +124,30 @@
     </div>
 </nav>
 
+<!-- Content for Popover #2 -->
+{#<div id="filter-elements" class="hide">#}
+{#    <div class="popover-heading">This is the heading for #2</div>#}
+{##}
+{#    <div class="popover-body">#}
+{#        <button class="btn btn-warning">Button</button>#}
+{#    </div>#}
+{#</div>#}
+{#<div id="popover-content-logout" class="hide">#}
+{#    <form class="form-inline" role="form">#}
+{#        <div class="form-group">#}
+{#            <input class="headerSearch search-query" id="str" name="str" type="text" placeholder="Search..."/>#}
+{#            <span class="glyphicon glyphicon-search" style="margin:3px 8px 0 -20px;"></span>#}
+{#            <input class="btn btn-primary btn-xs" id="phSearchButton" type="submit" value="Search"/>#}
+{#        </div>#}
+{#    </form>#}
+{#</div>#}
 
 <div class="container">
     <div class="globus">
         {% if messages %}
             {% for message in messages %}
                 <div class="alert alert-{{ message.tags }}">
-                {{ message }}
+                    {{ message }}
                 </div>
             {% endfor %}
         {% endif %}
@@ -129,47 +161,47 @@
 <!-- Footer -->
 <footer class="page-footer font-small special-color-dark pt-0 head-foot-colors my-foot">
 
-  <!-- Footer Elements -->
-  <div class="container">
+    <!-- Footer Elements -->
+    <div class="container">
 
-    <!-- Social buttons -->
-    <ul class="list-unstyled list-inline text-center footer-text">
-      <li class="list-inline-item">
-        <a class="btn-floating btn-fb mx-1">
-          <i class="fab fa-facebook-f"> </i>
-        </a>
-      </li>
-      <li class="list-inline-item">
-        <a class="btn-floating btn-tw mx-1">
-          <i class="fab fa-twitter"> </i>
-        </a>
-      </li>
-      <li class="list-inline-item">
-        <a class="btn-floating btn-gplus mx-1">
-          <i class="fab fa-google-plus-g"> </i>
-        </a>
-      </li>
-      <li class="list-inline-item">
-        <a class="btn-floating btn-li mx-1">
-          <i class="fab fa-linkedin-in"> </i>
-        </a>
-      </li>
-      <li class="list-inline-item">
-        <a class="btn-floating btn-dribbble mx-1">
-          <i class="fab fa-dribbble"> </i>
-        </a>
-      </li>
-    </ul>
-    <!-- Social buttons -->
+        <!-- Social buttons -->
+        <ul class="list-unstyled list-inline text-center footer-text">
+            <li class="list-inline-item">
+                <a class="btn-floating btn-fb mx-1">
+                    <i class="fab fa-facebook-f"> </i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-tw mx-1">
+                    <i class="fab fa-twitter"> </i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-gplus mx-1">
+                    <i class="fab fa-google-plus-g"> </i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-li mx-1">
+                    <i class="fab fa-linkedin-in"> </i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-dribbble mx-1">
+                    <i class="fab fa-dribbble"> </i>
+                </a>
+            </li>
+        </ul>
+        <!-- Social buttons -->
 
-  </div>
-  <!-- Footer Elements -->
+    </div>
+    <!-- Footer Elements -->
 
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3 my-foot">© 2019 Copyright:
-    <a href="https://mdbootstrap.com/education/bootstrap/" class="my-foot"> Casterly Rock Fasteignamiðlun</a>
-  </div>
-  <!-- Copyright -->
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3 my-foot">© 2019 Copyright:
+        <a href="https://mdbootstrap.com/education/bootstrap/" class="my-foot"> Casterly Rock Fasteignamiðlun</a>
+    </div>
+    <!-- Copyright -->
 
 </footer>
 <!-- Footer -->
@@ -177,19 +209,14 @@
 
 <!--/ Optional JavaScript -->
 <!--/ jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-<!--/ Out own Javascript-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!--/ Casterly JavaScript -->
 <script src="{% static 'js/estates.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
+
 </body>
 </html>
 

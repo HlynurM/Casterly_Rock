@@ -39,7 +39,7 @@ class Estates(models.Model):
     price = models.FloatField()
     category = models.ForeignKey(EstateCategory, on_delete=models.CASCADE)
     address = models.ForeignKey(Address, on_delete=models.CASCADE, blank=True)
-    on_sale = models.BooleanField()
+    on_sale = models.BooleanField(blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -55,17 +55,17 @@ class EstateImage(models.Model):
 
 
 class EstateDetails(models.Model):
-    estate = models.ForeignKey(Estates, on_delete=models.CASCADE)
+    estate = models.OneToOneField(Estates, on_delete=models.CASCADE)
     size = models.IntegerField()
     rooms = models.IntegerField()
     floors = models.IntegerField()
     towers = models.IntegerField()
-    ballroom = models.BooleanField()
-    tower_office = models.BooleanField()
-    moat = models.BooleanField()
-    stables = models.BooleanField()
-    dungeon = models.BooleanField()
-    drawbridge = models.BooleanField()
+    ballroom = models.BooleanField(null=True)
+    tower_office = models.BooleanField(null=True)
+    moat = models.BooleanField(null=True)
+    stables = models.BooleanField(null=True)
+    dungeon = models.BooleanField(null=True)
+    drawbridge = models.BooleanField(null=True)
 
 
 class StarRating(models.Model):
