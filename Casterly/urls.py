@@ -20,7 +20,9 @@ urlpatterns = [
     path('', include('estates.urls')),
     path('estates/', include('estates.urls')),
     path('admin/', admin.site.urls),
-    path('user/', include('user.urls'))
+    path('user/', include('user.urls')),
+    # ?????????
+    # path('about/', include('templates.us.'))
 ]
 
 # urlpatterns = [
