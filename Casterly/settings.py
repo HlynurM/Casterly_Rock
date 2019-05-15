@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'estates.apps.EstatesConfig',
     'temp.apps.UsersConfig',
     'user.apps.UserConfig',
+    'sales.apps.SalesConfig',
 ]
 
 MIDDLEWARE = [

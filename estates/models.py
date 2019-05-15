@@ -1,8 +1,7 @@
 from django.db import models
-from user.models import *
 from django.contrib.auth.models import User
 
-
+# Estates models
 class Kingdom(models.Model):
     name = models.CharField(max_length=64)
 
@@ -72,3 +71,4 @@ class EstateDetails(models.Model):
 class StarRating(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     estate = models.ForeignKey(Estates, on_delete=models.CASCADE)
+    has_star = models.BooleanField()
