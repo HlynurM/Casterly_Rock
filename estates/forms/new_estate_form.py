@@ -59,13 +59,20 @@ class AddDetailsForm(ModelForm):
             'drawbridge': widgets.CheckboxInput(attrs={'class': 'checkbox'})
         }
 
-
-
-# class PostForm(ModelForm):
-#     class Meta:
-#         model = Post
-#         fields = ('content')
-#
-# class ThreadForm(ModelForm):
-#     class Meta
-#         model = Thread
+class UpdateDetailsForm(ModelForm):
+    class Meta:
+        model = EstateDetails
+        exclude = ['id', 'estate']
+        fields = ['size','rooms','floors','towers','ballroom','tower_office','moat','stables','dungeon','drawbridge']
+        widgets = {
+            'size': widgets.NumberInput(attrs={'class': 'form-control'}),
+            'rooms': widgets.NumberInput(attrs={'class': 'form-control'}),
+            'floors': widgets.NumberInput(attrs={'class': 'form-control'}),
+            'towers': widgets.NumberInput(attrs={'class': 'form-control'}),
+            'ballroom': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
+            'tower_office': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
+            'moat': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
+            'stables': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
+            'dungeon': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
+            'drawbridge': widgets.CheckboxInput(attrs={'class': 'checkbox'})
+        }

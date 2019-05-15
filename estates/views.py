@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
 from django.db.models import Q
-from estates.forms.new_estate_form import CreateEstateForm, UpdateEstateForm, AddDetailsForm
+from estates.forms.new_estate_form import CreateEstateForm, UpdateEstateForm, AddDetailsForm, UpdateDetailsForm
 from estates.models import Estates, EstateImage, EstateDetails
 
 
@@ -52,12 +52,12 @@ def add_new_estate(request):
             estate_image.save()  # save the image into database
             return redirect('estates-index')
     else:
-        add_estate_form = CreateEstateForm()
-        add_details_form = AddDetailsForm()
+        estate_form = CreateEstateForm()
+        details_form = AddDetailsForm()
 
     context = {
-        'add_estate_form': add_estate_form,
-        'add_details_form': add_details_form,
+        'estate_form': estate_form,
+        'details_form': details_form,
     }
     return render(request, 'estates/add_new_estate.html', context)
 
@@ -67,19 +67,47 @@ def remove_estate(request, id):
     estate.delete()
     return redirect('estates-index')
 
-
 def update_estate(request, id):
     the_estate = get_object_or_404(Estates, pk=id)
+    the_details = get_object_or_404(EstateDetails, estate_id=id)
+
     if request.method == 'POST':
-        form = UpdateEstateForm(data=request.POST, instance=the_estate)
-        if form.is_valid():
-            form.save()
+        update_estate_form = UpdateEstateForm(data=request.POST, instance=the_estate)
+        update_details_form = UpdateDetailsForm(data=request.POST, instance=the_details)
+        # print(f'estate: {update_estate_form}, details: {update_details_form}')
+
+        if update_estate_form.is_valid() and update_details_form.is_valid():
+            print("Both are valid!")
+            estate = update_estate_form.save()
+            details = update_details_form.save(commit=False)
+            details.estate=estate
+            update_details_form.save()
+
             return redirect('estate_overview', id=id)
     else:
-        form = UpdateEstateForm(instance=the_estate)
+        print("Or else!!!")
+        estate_form = UpdateEstateForm(instance=the_estate)
+        details_form = UpdateDetailsForm(instance=the_details)
 
     context = {
-        'form': form,
+        'estate_form': estate_form,
+        'details_form': details_form,
         'id': id
     }
     return render(request, 'estates/update_estate.html', context)
+
+# def update_estate(request, id):
+#     the_estate = get_object_or_404(Estates, pk=id)
+#     if request.method == 'POST':
+#         form = UpdateEstateForm(data=request.POST, instance=the_estate)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('estate_overview', id=id)
+#     else:
+#         form = UpdateEstateForm(instance=the_estate)
+#
+#     context = {
+#         'form': form,
+#         'id': id
+#     }
+#     return render(request, 'estates/update_estate.html', context)

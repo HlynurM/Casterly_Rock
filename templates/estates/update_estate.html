@@ -1,20 +1,27 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+
 {% block content %}
 
-    <form class="form form-horizontal" action="{% url 'update_estate' id %}" method="post">
-        {% csrf_token %}
+    <div class="offset-3 col-md-6">
 
-        {{ form|crispy }}
+        <form class="form form-horizontal" action="{% url 'update_estate' id %}" method="post">
+            {% csrf_token %}
 
-    <div class="text-right">
-            <input type="submit"
-                   value="Update"
-                   class="btn btn-danger"
-                   style="  clear:both;
-                            margin: 10px 0"
-            />
-        </div>
-    </form>
+            <div class="form-group">
+
+                {{ add_estate_form|crispy }}
+                {{ add_details_form|crispy }}
+
+                <div class="text-right">
+                    <input type="submit"
+                           value="Update"
+                           class="btn btn-danger"
+                           style="clear:both; margin: 10px 0"
+                    />
+                </div>
+            </div>
+        </form>
+    </div>
 
 {% endblock content %}
