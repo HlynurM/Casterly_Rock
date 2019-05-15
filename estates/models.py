@@ -71,4 +71,4 @@ class EstateDetails(models.Model):
 class StarRating(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     estate = models.ForeignKey(Estates, on_delete=models.CASCADE)
-    has_star = models.BooleanField()
+    has_star = models.BooleanField(default=None)

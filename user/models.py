@@ -11,7 +11,7 @@ class Profile(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    address = models.ForeignKey(Address, on_delete=models.CASCADE, unique=True)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE)
     ssn = models.CharField(max_length=11, unique=True)
     phone = models.CharField(max_length=7)
     profile_image = models.CharField(max_length=999, blank=True)
@@ -22,5 +22,5 @@ class UserProfile(models.Model):
 class CreditCard(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     credit_number = models.CharField(max_length=19)
-    sec_number = models.IntegerField()
-    credit_amount = models.FloatField()
+    sec_number = models.IntegerField(default=None)
+    credit_amount = models.FloatField(default=None)
