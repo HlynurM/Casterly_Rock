@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from estates.models import *
+from estates.models import Address, Estates
 
 
 # Create your models here.
@@ -23,11 +23,11 @@ class Profile(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # address = models.ForeignKey('Address', on_delete=models.CASCADE)
+    street = models.ForeignKey(Address, on_delete=models.CASCADE)
     ssn = models.CharField(max_length=11, unique=True)
     phone = models.CharField(max_length=7)
     profile_image = models.CharField(max_length=999, blank=True)
-    # owned_property = models.OneToOneField('Estates', on_delete=models.CASCADE)
+    owned_property = models.OneToOneField(Estates, on_delete=models.CASCADE)
     bio = models.TextField(blank=True)
 
 
