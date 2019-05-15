@@ -28,10 +28,11 @@ class UpdateEstateForm(ModelForm):
     class Meta:
         model = Estates
         exclude = ['id']
+        fields = ['name', 'short_description', 'description', 'address', 'category', 'price', 'user', 'on_sale']
         widgets = {
             'name': widgets.TextInput(attrs={'class': 'form-control'}),
             'short_description': widgets.TextInput(attrs={'class': 'form-control'}),
-            'description': widgets.Textarea(attrs={'rows': 4, 'cols': 15}),
+            'description': widgets.Textarea(attrs={'rows': 5, 'cols': 5}),
             'address': widgets.Select(attrs={'class': 'form-control'}),
             'category': widgets.Select(attrs={'class': 'form-control'}),
             'price': widgets.NumberInput(attrs={'class': 'form-control'}),
