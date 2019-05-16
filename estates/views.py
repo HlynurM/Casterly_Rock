@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
 from django.db.models import Q
 from estates.forms.new_estate_form import CreateEstateForm, UpdateEstateForm, AddDetailsForm, UpdateDetailsForm
-from estates.models import Estates, EstateImage, EstateDetails
+from estates.models import Estates, EstateImage, EstateDetails, StarRating
 
 
 def index(request):
@@ -14,7 +14,8 @@ def index(request):
             'name': x.name,
             'description': x.short_description,
             'price': x.price,
-            'firstImage': x.estateimage_set.first().image
+            'firstImage': x.estateimage_set.first().image,
+            'rating': x.StarRating.has_star
         } for x in Estates.objects.filter(
             Q(name__icontains=search_filter) or
             Q(description__icontains=search_filter) or
