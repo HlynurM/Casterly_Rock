@@ -7,14 +7,13 @@ from django.contrib import messages
 
 
 def register(request):
+
     if request.method == 'POST':
         form = UserRegisterForm(data = request.POST)
-        #p_form = ProfileForm(request.POST, request.FILES, instance=request.user.userprofile)
         if form.is_valid():
             username = form.cleaned_data.get('username')
             messages.success(request, f'Notandi {username} skráður!')
             form.save()
-            #p_form.save()
             return redirect('/')
         else:
             messages.error(request, f'Villa við skráningu! Vinsamlegast fylgið leiðbeiningum')
@@ -22,7 +21,6 @@ def register(request):
         form = UserRegisterForm()
     return render(request, 'user/register.html', {
         'form': form,
-        #'p_form': p_form
 
     })
 
