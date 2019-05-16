@@ -76,6 +76,7 @@ p {
     border-color: #dcdcdc;
     border-radius: 1%;
     background-color: #fdfdfd;
+    margin-bottom: 20px;
 }
 
 .estate-img {
@@ -104,8 +105,6 @@ p {
     font-weight: bold;
 }
 
-
-
 .globus {
 
 }
@@ -117,8 +116,8 @@ p {
 }
 
 .navbar a:hover, .navbar a:active {
-    color: #d7d7d7;
-    font-weight: bold;
+    color: #EAB64D;
+    font-weight: normal;
     text-decoration: none;
 }
 
@@ -137,12 +136,12 @@ p {
     /*color: #FFFFFF;*/
 }
 
-.my-foot a:link,.my-foot  a:visited {
+.my-foot a:link, .my-foot a:visited {
     font-weight: bold;
     color: #FFFFFF;
 }
 
- a.my-foot:hover, .my-foot a:active {
+a.my-foot:hover, .my-foot a:active {
     font-weight: bolder;
     color: #EAB64D;
 }
@@ -180,17 +179,86 @@ p {
 .head-foot-colors {
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
     font-style: normal;
-    font-weight: bold;
-    color: #FFFFFF;
+    /*font-weight: bold;*/
+    /*color: #FFFFFF;*/
     background-color: #930416;
 }
 
-.container {padding:80px;}
-.form-control {width:120px;}
-.popover {max-width:400px;}
+.container {
+    padding: 25px;
+}
+
+/*.form-control {*/
+/*    display: inline-block;*/
+/*    width: 80%;*/
+/*}*/
+
+.popover {
+    max-width: 400px;
+}
 
 #popover-content-filter > * {
-  background-color:#ff0000 !important;
+    background-color: #ff0000 !important;
+}
+
+.flex-container {
+    display: -webkit-flex;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-around;
+    width: 540px;
+    height: 250px;
+    margin: auto;
+}
+
+img {
+    width: 175px;
+    height: 200px;
+}
+
+.about {
+    justify-content: space-around;
+    width: 70%;
+    margin: auto;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.flex-item {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+
+.item1 {
+    -webkit-flex: 1;
+    flex: 1;
+}
+
+.item2 {
+    -webkit-flex: 2;
+    flex: 2;
+}
+
+.item3 {
+    -webkit-flex: 2;
+    flex: 3;
+    text-align: right;
+}
+
+#price {
+    font-weight: bold;
 }
 
 .my_color_palette {

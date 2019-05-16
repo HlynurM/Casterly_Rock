@@ -1,20 +1,34 @@
 {% extends 'base.html' %}
+<<<<<<< HEAD
+=======
+{% load crispy_forms_tags %}
+>>>>>>> 7035711d43ae1dd475f7651ac3211e80f14622e6
 
 {% block content %}
 
-    <form class="form form-horizontal" action="{% url 'update_estate' id %}" method="post">
-        {% csrf_token %}
+    <div class="offset-3 col-md-6">
 
+        <form class="form form-horizontal" action="{% url 'update_estate' id %}" method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+
+<<<<<<< HEAD
         {{ form }}
+=======
+                {{ estate_form|crispy }}
+                {{ details_form|crispy }}
+>>>>>>> 7035711d43ae1dd475f7651ac3211e80f14622e6
 
-    <div class="text-right">
-            <input type="submit"
-                   value="Update"
-                   class="btn btn-danger"
-                   style="  clear:both;
-                            margin: 10px 0"
-            />
-        </div>
-    </form>
+                <div class="text-right">
+                    <input type="submit"
+                           value="Update"
+                           class="btn btn-danger"
+                           style="clear:both; margin: 10px 0"
+                    />
+                </div>
+            </div>
+        </form>
+    </div>
 
 {% endblock content %}

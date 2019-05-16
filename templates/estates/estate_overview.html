@@ -2,23 +2,95 @@
 
 {% block content %}
 
-    <h3>{{ estate.name }}</h3>
-    <h2>Price: ${{ estate.price }}</h2>
-    <p>{{ estate.description }}</p>
-    <p>Address: {{ estate.address.street_name }}, {{ estate.address.region_code }}</p>
-    <p>Kingdom: {{ estate.address.region_code.kingdom }}</p>
-    <p>Current owner: {{ estate.user.get_full_name }}</p>
+    <div class="flex-container">
+        {# TODO:   Fara i gegnum allar myndir#}
+        {% for photo in estate.estateimage_set.all %}
+            <div class="flex-item">
+                <img src="{{ photo.image }}" class="estate-img thumbnail"/>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="flex-item item1">
+        <h3>{{ estate.name }}</h3>
+        <h4>Price: ${{ estate.price }}</h4>
+        <h4>{{ estate.short_description }}</h4>
+        <p>Address: {{ estate.address.street_name }}, {{ estate.address.region_code }}<br>
+            Kingdom: {{ estate.address.region_code.kingdom }}</p>
+        <p>Current owner: {{ estate.user.get_full_name }}</p>
+    </div>
+    <div class="flex-container">
+        <div class="flex-item item1">
+            Fermetrar:<br>
+            Herbergi:<br>
+            Hæðir:<br>
+            Turnar:<br>
+            Danssalur:<br>
+            Turnskrifstofa:<br>
+            Kastaladíki:<br>
+            Hesthús:<br>
+            Dýflissa:<br>
+            Vindubrú:
+        </div>
+        <div class="flex-item item2">
+            {{ estate.estatedetails.size }}<br>
+            {{ estate.estatedetails.rooms }}<br>
+            {{ estate.estatedetails.floors }}<br>
+            {{ estate.estatedetails.towers }}<br>
 
-    {# TODO:   Fara i gegnum allar myndir#}
-    {% for photo in estate.estateimage_set.all %}
-{#        <div class="thumbnail">#}
-            <img src="{{ photo.image }}" class="estate-img thumbnail"/>
-{#        </div>#}
-    {% endfor %}
+            {% if estate.estatedetails.ballroom == True %}
+                Já
+            {% else %}
+                Nei
+            {% endif %}<br>
+            {% if estate.estatedetails.tower_office == True %}
+                Já
+            {% else %}
+                Nei
+            {% endif %}<br>
+            {% if estate.estatedetails.moat == True %}
+                Já
+            {% else %}
+                Nei
+            {% endif %}<br>
+            {% if estate.estatedetails.stables == True %}
+                Já
+            {% else %}
+                Nei
+            {% endif %}<br>
+            {% if estate.estatedetails.dungeon == True %}
+                Já
+            {% else %}
+                Nei
+            {% endif %}<br>
+            {% if estate.estatedetails.drawbridge == True %}
+                Já
+            {% else %}
+                Nei
+            {% endif %}<br>
 
+        </div>
+
+        <div class="flex-item item3">
+            <h4 id="price">€{{ estate.price }},-</h4>
+            <p>Hafa samband:<br>
+                <a href="mailto:emailseljanda">Við seljendur</a><br>
+                <a href="mailto:xaro@casterlyrock.we">Við fasteignasala</a></p>
+
+            <input type="button" class="btn btn-outline-danger" value="KAUPA">
+
+        </div>
+    </div>
+
+    <div class="about">
+        <p>{{ estate.description }}
+        </p>
+    </div>
     <div class="text-left">
+        <a href="{% url 'sale-index' estate.id %}" class="btn btn-outline-danger">Buy estate</a>
         <a href="{% url 'update_estate' estate.id %}" class="btn btn-outline-danger">Update information</a>
         <a href="{% url 'remove_estate' estate.id %}" class="btn btn-danger">Delete property</a>
     </div>
+
+
 
 {% endblock content %}
