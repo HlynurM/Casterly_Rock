@@ -58,7 +58,7 @@
                         data-container="body"
                         data-toggle="popover"
                         data-placement="bottom"
-                        title="Hér má sía nánar"
+                        title="Sía nánar"
                         data-content="Þetta er núna virkur popover gluggi.">
 {#                        data-popover-content="#logout">#}
                     <!--/Get vætanlega nýtt mér auka síðu fyrir data popover content -->
@@ -89,14 +89,32 @@
                         <img src="http://simpleicon.com/wp-content/uploads/user1.png" alt="description"
                              class="profile-pic"/>
 
-
                     {% endif %}
                     {#                    </a>#}
                 </li>
             {% else %}
+                <button class="btn btn-outline-light"
+                        type="button"
+                        id="filter"
+                        alt="filter"
+                        data-container="body"
+                        data-toggle="popover"
+                        data-placement="bottom"
+                        title="Skráðu þig inn hér"
+                        data-content="Setja login form hér væri massað">
+
+                    <span class="fas fa-filter" id=""></span>
+                </button>
+
+
                 <li class="nav-item active">
                     <a class="nav-link" href="{% url 'login' %}">SKRÁ INN<span class="sr-only">(current)</span></a>
                 </li>
+
+
+
+
+
                 <li class="nav-item active">
                     <a class="nav-link" href="{% url 'register' %}"><i class="fas fa-user"></i> SKRÁ NOTANDA<span
                             class="sr-only">(current)</span></a>

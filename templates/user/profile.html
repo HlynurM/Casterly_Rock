@@ -7,8 +7,10 @@
     <h4>Hæ {{ user.first_name }}!</h4>
     <h4><strong>Hér getur þú séð yfirlit yfir þínar eignir, breytt lykilorði og fleira</strong></h4>
 
-    <p><img src = "{{ user.userprofile.profile_image }}" alt="description" width="200" height="88" /></p>
-    <form class="form form-horizontal" method="POST" enctype="multipart/form-data">
+    {% if user.userprofile.profile_image %}
+        <p><img src = "{{ user.userprofile.profile_image }}" alt="description" width="200" height="88" /></p>
+    {% endif %}
+    <form class="form form-horizontal" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ u_form|crispy }}
         {{ p_form|crispy }}
