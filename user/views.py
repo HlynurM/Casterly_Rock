@@ -4,6 +4,7 @@ from user.forms.profile_form import ProfileForm, UserForm
 from user.forms.register_form import UserRegisterForm
 from user.models import UserProfile
 from django.contrib import messages
+from user.models import User
 
 
 def register(request):
@@ -51,4 +52,9 @@ def profile(request):
 def index(request):
     return render(request, 'user/index.html', {
         'user':  User.objects.all()
+    })
+
+def my_estates(request):
+    return render(request, 'user/my_estates.html', {
+        'user': User.objects.all()
     })

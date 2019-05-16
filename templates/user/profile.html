@@ -16,7 +16,9 @@
         {{ p_form|crispy }}
         <br>
         <input type="submit" class="btn btn-primary" value="Uppfæra" />
-
+        <li class="btn ">
+                    <a class="nav-link" href="{% url 'my_estates' %}">Mínar eignir<span class="sr-only">(current)</span></a>
+                </li>
     </form>
 
 {% endblock %}
