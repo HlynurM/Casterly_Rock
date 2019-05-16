@@ -113,8 +113,7 @@
                     {% if user.is_authenticated %}
                         <a class="dropdown-item" href="{% url 'profile' %}">MITT SVÆÐI</a>
                     {% endif %}
-                    <a class="dropdown-item" href="{% url 'profile
-                    a' %}">UM OKKUR</a>
+                    <a class="dropdown-item" href="{% url 'company-about' %}">UM OKKUR</a>
                     {% if user.is_authenticated %}
                         <a class="dropdown-item" href="{% url 'add_new_estate' %}">SKRÁ NÝJA EIGN</a>
                         <div class="dropdown-divider">
