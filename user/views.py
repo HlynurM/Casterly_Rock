@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect
 from user.forms.profile_form import ProfileForm, UserForm
 from user.forms.register_form import UserRegisterForm
+from django.contrib.auth.decorators import login_required
 from user.models import UserProfile
 from django.contrib import messages
 from user.models import User
@@ -23,6 +24,7 @@ def register(request):
         'form': u_form,
     })
 
+@login_required
 def profile(request):
     profile = UserProfile.objects.filter(user = request.user).first()
     if request.method == 'POST':
@@ -38,6 +40,9 @@ def profile(request):
             messages.success(request, f'Breytingar skráðar.')
 
             return redirect('profile')
+        else:
+            messages.error(request, f'Eitthvað fór úrskeiðis')
+            return redirect('/')
     else:
         u_form = UserForm(instance = request.user)
         p_form = ProfileForm(instance = profile)

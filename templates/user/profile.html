@@ -5,11 +5,18 @@
     <h1>Mitt Svæði!</h1>
 
     <h4>Hæ {{ user.first_name }}!</h4>
+    <p class="text-secondary">{{ user.email }}</p>
 
-    <br>
-    {% if user.userprofile.profile_image %}
-        <p><img src = "{{ user.userprofile.profile_image }}" alt="description" width="200" height="88" /></p>
-    {% endif %}
+
+    <div class="content-section">
+    <div class="media">
+          <img class="rounded-circle account-img" src = "{{ user.userprofile.profile_image }}">
+          <div class="media-body">
+        </div>
+      </div>
+
+
+
     <br>
     <h4><strong>Hér getur þú séð yfirlit yfir þínar eignir, breytt lykilorði og fleira</strong></h4>
     <form class="form form-horizontal" method="post" enctype="multipart/form-data">
