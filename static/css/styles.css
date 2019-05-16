@@ -304,7 +304,7 @@ img {
 }
 
 .flex-item {
-    background-color: cornflowerblue;
+    /*background-color: cornflowerblue;*/
     width: 200px;
     height: 100px;
     margin: 10px;

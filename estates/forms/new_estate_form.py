@@ -1,19 +1,30 @@
 from django.forms import ModelForm, widgets
 from django import forms
-from estates.models import Estates, EstateDetails
+from estates.models import Estates, EstateDetails, Address
 
 
 class CreateEstateForm(ModelForm):
-    image = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    Slóð_á_mynd = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     class Meta:
         model = Estates
         exclude = ['id']
         fields = ['name', 'short_description', 'description', 'address', 'category', 'price', 'user', 'on_sale']
+        # fields = ['name', 'short_description', 'description', 'address', 'category', 'price', 'on_sale']
+        labels = {
+            "name": "Nafn",
+            "short_description": "Stutt og hnitmiðuð fyrirsögn",
+            "description": "Lýsing á eign",
+            "address": "Heimilisfang",
+            "category": "Flokkur",
+            "price": "Verð á eign",
+            "user": "Eigandi",
+            "on_sale": "Er eignin á sölu",
+        }
         widgets = {
             'name': widgets.TextInput(attrs={'class': 'form-control'}),
             'short_description': widgets.TextInput(attrs={'class': 'form-control'}),
-            'description': widgets.Textarea(attrs={'rows': 5, 'cols': 5}),
+            'description': widgets.Textarea(attrs={'rows': 10, 'cols': 5}),
             'address': widgets.Select(attrs={'class': 'form-control'}),
             'category': widgets.Select(attrs={'class': 'form-control'}),
             'price': widgets.NumberInput(attrs={'class': 'form-control'}),
@@ -23,12 +34,23 @@ class CreateEstateForm(ModelForm):
 
 
 class UpdateEstateForm(ModelForm):
-    image = forms.CharField(required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    Slóð_á_mynd = forms.CharField(required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     class Meta:
         model = Estates
         exclude = ['id']
         fields = ['name', 'short_description', 'description', 'address', 'category', 'price', 'user', 'on_sale']
+        # fields = ['name', 'short_description', 'description', 'address', 'category', 'price', 'on_sale']
+        labels = {
+            "name": "Nafn",
+            "short_description": "Stutt og hnitmiðuð fyrirsögn",
+            "description": "Lýsing á eign",
+            "address": "Heimilisfang",
+            "category": "Flokkur",
+            "price": "Verð á eign",
+            "user": "Eigandi",
+            "on_sale": "Er eignin á sölu",
+        }
         widgets = {
             'name': widgets.TextInput(attrs={'class': 'form-control'}),
             'short_description': widgets.TextInput(attrs={'class': 'form-control'}),
@@ -46,6 +68,18 @@ class AddDetailsForm(ModelForm):
         model = EstateDetails
         exclude = ['id', 'estate']
         fields = ['size','rooms','floors','towers','ballroom','tower_office','moat','stables','dungeon','drawbridge']
+        labels = {
+            "size": "Stærð eignar",
+            "rooms": "Herbergjafjöldi",
+            "floors": "Hæðir",
+            "towers": "Hversu margir turnar",
+            "ballroom": "Er danssalur",
+            "tower_office": "Er turnskrifstofa",
+            "moat": "Er kastala síki",
+            "stables": "Eru hesthús",
+            "dungeon": "Fylgir dýflissa með",
+            "drawbridge": "Er vindubrú",
+        }
         widgets = {
             'size': widgets.NumberInput(attrs={'class': 'form-control'}),
             'rooms': widgets.NumberInput(attrs={'class': 'form-control'}),
@@ -64,6 +98,18 @@ class UpdateDetailsForm(ModelForm):
         model = EstateDetails
         exclude = ['id', 'estate']
         fields = ['size','rooms','floors','towers','ballroom','tower_office','moat','stables','dungeon','drawbridge']
+        labels = {
+            "size": "Stærð eignar",
+            "rooms": "Herbergjafjöldi",
+            "floors": "Hæðir",
+            "towers": "Hversu margir turnar",
+            "ballroom": "Er danssalur",
+            "tower_office": "Er turnskrifstofa",
+            "moat": "Er kastala síki",
+            "stables": "Eru hesthús",
+            "dungeon": "Fylgir dýflissa með",
+            "drawbridge": "Er vindubrú",
+        }
         widgets = {
             'size': widgets.NumberInput(attrs={'class': 'form-control'}),
             'rooms': widgets.NumberInput(attrs={'class': 'form-control'}),

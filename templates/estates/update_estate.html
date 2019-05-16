@@ -3,12 +3,18 @@
 
 {% block content %}
 
-    <div class="offset-3 col-md-6">
+    <div class="offset-1 col-md-10">
+
+
+        <h3>Breyttu skráningu á þessari eign</h3>
+
+        <h4>Hæ {{ user.get_full_name }}</h4>
+        <p>Hér að neðan getur þú skráð inn nýjar upplýsingar um eign þína. Settu þær upplýsingar sem við eiga í viðkomandi reiti.</p>
 
         <form class="form form-horizontal" action="{% url 'update_estate' id %}" method="post">
             {% csrf_token %}
 
-            <div class="form-group">
+{#            <div class="form-group">#}
 
                 {{ estate_form|crispy }}
                 {{ details_form|crispy }}
@@ -20,7 +26,7 @@
                            style="clear:both; margin: 10px 0"
                     />
                 </div>
-            </div>
+{#            </div>#}
         </form>
     </div>
 

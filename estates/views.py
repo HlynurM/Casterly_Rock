@@ -14,13 +14,16 @@ def index(request):
             'name': x.name,
             'description': x.short_description,
             'price': x.price,
-            'firstImage': x.estateimage_set.first().image,
-            'rating': x.StarRating.has_star
+            # 'address': x.address,
+            'firstImage': x.estateimage_set.first().image
         } for x in Estates.objects.filter(
             Q(name__icontains=search_filter) or
             Q(description__icontains=search_filter) or
+            Q(price__icontains=search_filter) or
+            Q(address__street_name__icontains=search_filter) or
             Q(address__region_code__icontains=search_filter) or
-            Q(address__street_name__icontains=search_filter)
+            Q(address__region_code__kingdom___icontains=search_filter)
+
         )]
         # print(estates)
         return JsonResponse({'data': estates})
@@ -40,16 +43,18 @@ def get_estate_by_id(request, id):
 
 def add_new_estate(request):
     if request.method == 'POST':
-        add_estate_form = CreateEstateForm(data=request.POST)
-        add_details_form = AddDetailsForm(data=request.POST)
+        estate_form = CreateEstateForm(data=request.POST)
+        details_form = AddDetailsForm(data=request.POST)
 
-        if add_estate_form.is_valid() and add_details_form.is_valid():
-            estate = add_estate_form.save()  # save the form into database
-            details = add_details_form.save(commit=False)
+        if estate_form.is_valid() and details_form.is_valid():
+            estate = estate_form.save()  # save the form into database
+            details = details_form.save(commit=False)
+            # estate_form.user = request.user
             details.estate = estate
-            add_details_form.save()
+            details_form.save()
 
-            estate_image = EstateImage(image=request.POST['image'], estate=estate)
+            # estate_image = EstateImage(image=request.POST['image'], estate=estate)
+            estate_image = EstateImage(image=request.POST['Slóð_á_mynd'], estate=estate)
             estate_image.save()  # save the image into database
             return redirect('estates-index')
     else:
@@ -79,7 +84,7 @@ def update_estate(request, id):
         # print(f'estate: {update_estate_form}, details: {update_details_form}')
 
         if update_estate_form.is_valid() and update_details_form.is_valid():
-            print("Both are valid!")
+            # print("Both are valid!")
             estate = update_estate_form.save()
             details = update_details_form.save(commit=False)
             details.estate=estate
