@@ -21,9 +21,7 @@ urlpatterns = [
     path('', include('estates.urls')),
     path('estates/', include('estates.urls')),
     path('user/', include('user.urls')),
-    path('sales/', include(('sales.urls')))
-    # ?????????
-    # path('about/', include('templates.us.'))
+    path('sales/', include(('sales.urls'))),
 ]
 
 # urlpatterns = [

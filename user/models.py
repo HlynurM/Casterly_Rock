@@ -4,10 +4,10 @@ from estates.models import Address, Estates
 
 
 # User models
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+# class Profile(models.Model):
+    # user = models.OneToOneField(User, on_delete=models.CASCADE)
     # owned_property = models.OneToOneField('Estates', on_delete=models.CASCADE)
-    profile_image = models.CharField(max_length=999)
+    # profile_image = models.CharField(max_length=999)
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

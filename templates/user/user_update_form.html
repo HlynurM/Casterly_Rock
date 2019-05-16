@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content%}
+
+    <h2>Breyta grunn notendaupplýsingum</h2>
+
+    <form class="form form-horizontal" method="post">
+        {% csrf_token %}
+        {{ u_form|crispy }}
+        <br>
+        <input type="submit" class="btn btn-primary" value="Uppfæra" />
+
+    </form>
+
+{% endblock %}

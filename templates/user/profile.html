@@ -2,17 +2,18 @@
 {% load crispy_forms_tags %}
 {% block content%}
 
-    <h1>Mitt Svæði</h1>
+    <h1>Mitt Svæði!</h1>
 
     <h4>Hæ {{ user.first_name }}!</h4>
     <h4><strong>Hér getur þú séð yfirlit yfir þínar eignir, breytt lykilorði og fleira</strong></h4>
 
-    <p><img src = "{{ user.profile.profile_image }}" alt="description" width="200" height="88" /></p>
-    <form class="form form-horizontal" method="post">
+    <p><img src = "{{ user.userprofile.profile_image }}" alt="description" width="200" height="88" /></p>
+    <form class="form form-horizontal" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form|crispy }}
-        <h1></h1>
-        <input type="submit" class="btn btn-primary" value="Save" />
+        {{ u_form|crispy }}
+        {{ p_form|crispy }}
+        <br>
+        <input type="submit" class="btn btn-primary" value="Uppfæra" />
 
     </form>
 
