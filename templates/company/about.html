@@ -1,52 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>About us</title>
-    <style>
-        .flex-container {
-            display: -webkit-flex;
-            display: -webkit-flex;
-            display: flex;
-
-            justify-content: space-around;
-            width: 770px;
-            height: 150px;
-            margin: auto;
-
-        }
-
-        img {
-            width: 250px;
-            height: 125px;
-        }
-
-        .about {
-            justify-content: space-around;
-
-            width: 57%;
-            margin: auto;
-
-        }
-
-        .flex-item {
-            background-color: cornflowerblue;
-            width: 200px;
-            height: 100px;
-            margin: 10px;
-        }
-
-        #sub-text {
-            font-size: 0.7em;
-            text-align: right;
-       }
-    </style>
-</head>
-
-<body>
+{% block content %}
 
     <div class="flex-container">
         <div class="flex-item"><img
@@ -59,7 +13,8 @@
     </div>
 
     <div class="about">
-        <p id="main-text">Hópurinn á bak við fasteignasöluna Casterly Rock er svo miklu meira en bara fasteignasalar í leit að
+        <p id="main-text">Hópurinn á bak við fasteignasöluna Casterly Rock er svo miklu meira en bara fasteignasalar í
+            leit að
             fasteignaskráningum. Við erum ástríðufullir eignasérfræðingar sem skilja þarfir og vilja viðskiptavina
             okkar. Þegar þú tekur eignarákvarðanir sem hafa áhrif á fjölskyldu þína þarftu Casterly Rock. Þetta á
             sérstaklega við þegar leitað er að kastala til eignar og íbúðar. Við skiljum að heimili þitt er mikilvægur
@@ -69,15 +24,17 @@
             fasteignamarkaðinum í Westeros og þeir möguleikum sem þar er finna. Casterly Rock sérhæfir sig í bestu
             kastölum og virkjum sem völ er á með lúxus danssölum og dýflissum.</p>
 
-        <p id="main-text">Upplifðu alvöru þjónustu og alvöru kastala. Casterly Rock býður aðeins upp á það besta. Kaup og sala á eign í
+        <p id="main-text">Upplifðu alvöru þjónustu og alvöru kastala. Casterly Rock býður aðeins upp á það besta. Kaup
+            og sala á eign í
             gegnum Casterly Rock segir að þú sért upplýstur kaupandi. Góðar upplýsingar leiða af sér góðar ákvarðanir
             sem gefur góðan árangur. Casterly Rock tryggir að þú hafir allar staðreyndir og stuðning sem þú þarft á að
             halda, lágmarkar alla áhættu og hámarkar umbun. Þetta er öruggasta fjárfesting sem völ er á.*</p>
 
-        <p id_"main-text">Casterly Rock er alltaf á fullu. Fulltrúar okkar vinna hörðum höndum við að byggja um hágæða fasteignaskrá og
-            hjálpa kaupendum að skipta yfir í kastla drauma sinna. Nú er tíminn til að kaupa því ógrynni af kastölum
-            standa auðir og bíða hins rétta eiganda. Þótt margir þeirra séu í bágbornu ástandi eru tækifærin frábær
-            fyrir rétta eigendum sem kunna að bretta upp ermar og taka til hendi.</p>
+        <p id_"main-text">Casterly Rock er alltaf á fullu. Fulltrúar okkar vinna hörðum höndum við að byggja um hágæða
+        fasteignaskrá og
+        hjálpa kaupendum að skipta yfir í kastla drauma sinna. Nú er tíminn til að kaupa því ógrynni af kastölum
+        standa auðir og bíða hins rétta eiganda. Þótt margir þeirra séu í bágbornu ástandi eru tækifærin frábær
+        fyrir rétta eigendum sem kunna að bretta upp ermar og taka til hendi.</p>
 
         <p id="main-text">Casterly Rock</p>
 
@@ -87,6 +44,4 @@
 
     </div>
 
-</body>
-
-</html>
+{% endblock content %}
