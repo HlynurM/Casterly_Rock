@@ -10,7 +10,7 @@
             </div>
         {% endfor %}
     </div>
-    <div class="flex-item item1">
+    <div class="">
         <h3>{{ estate.name }}</h3>
         <h4>Price: ${{ estate.price }}</h4>
         <h4>{{ estate.short_description }}</h4>
@@ -76,7 +76,7 @@
                 <a href="mailto:emailseljanda">Við seljendur</a><br>
                 <a href="mailto:xaro@casterlyrock.we">Við fasteignasala</a></p>
 
-            <input type="button" class="btn btn-outline-danger" value="KAUPA">
+            <a href="{% url 'sale-index' estate.id %}" class="btn btn-outline-danger">Kaupa</a>
 
         </div>
     </div>
@@ -85,11 +85,17 @@
         <p>{{ estate.description }}
         </p>
     </div>
-    <div class="text-left">
-        <a href="{% url 'sale-index' estate.id %}" class="btn btn-outline-danger">Buy estate</a>
-        <a href="{% url 'update_estate' estate.id %}" class="btn btn-outline-danger">Update information</a>
-        <a href="{% url 'remove_estate' estate.id %}" class="btn btn-danger">Delete property</a>
-    </div>
+    {% if user.is_authenticated %}
+        <div class="text-left">
+            <a href="{% url 'sale-index' estate.id %}" class="btn btn-outline-danger">Kaupa</a>
+            <a href="{% url 'update_estate' estate.id %}" class="btn btn-outline-danger">Uppfæra upplýsingar</a>
+            <a href="{% url 'remove_estate' estate.id %}" class="btn btn-danger">Eyða eign</a>
+        </div>
+    {% else %}
+        <a href="{% url 'estates-index' %}" class="btn btn-outline-danger">Aftur á forsíðu</a>
+    {% endif %}
+
+
 
 
 

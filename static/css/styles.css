@@ -275,3 +275,42 @@ img {
     color: #4A4A4A;
     color: #1F1F1F;
 }
+
+/* ----------- BIL ------------------------------*/
+
+.flex-container {
+    display: -webkit-flex;
+    display: -webkit-flex;
+    display: flex;
+
+    justify-content: space-around;
+    width: 770px;
+    height: 150px;
+    margin: auto;
+
+}
+
+img {
+    width: 250px;
+    height: 125px;
+}
+
+.about {
+    justify-content: space-around;
+
+    width: 57%;
+    margin: auto;
+
+}
+
+.flex-item {
+    background-color: cornflowerblue;
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+}
+
+#sub-text {
+    font-size: 0.7em;
+    text-align: right;
+}
