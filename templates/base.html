@@ -78,9 +78,11 @@
                     <a class="nav-link" href="{% url 'add_new_estate' %}">SKRÁ NÝJA EIGN<span
                             class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active profile-name">
+                <li class="nav-item active profile-name" >
+
                     {#                    <a class="nav-link profile-name" href="{% url 'profile' %}">#}
-                    {{ user.userprofile.user.get_full_name }}
+                    {#{ user.userprofile.user.get_full_name }#}
+                    {{ user.username }}
                     {% if user.userprofile.profile_image %}
                         <img src="{{ user.userprofile.profile_image }}" alt="description" class="profile-pic"/>
                     {% else %}
