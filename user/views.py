@@ -8,7 +8,6 @@ from user.models import User
 
 
 def register(request):
-
     if request.method == 'POST':
         u_form = UserRegisterForm(data = request.POST)
         if u_form.is_valid():
@@ -55,6 +54,4 @@ def index(request):
     })
 
 def my_estates(request):
-    return render(request, 'user/my_estates.html', {
-        'user': User.objects.all()
-    })
+    return render(request, 'user/my_estates.html')

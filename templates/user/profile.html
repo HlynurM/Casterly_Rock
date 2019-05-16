@@ -5,20 +5,23 @@
     <h1>Mitt Svæði!</h1>
 
     <h4>Hæ {{ user.first_name }}!</h4>
-    <h4><strong>Hér getur þú séð yfirlit yfir þínar eignir, breytt lykilorði og fleira</strong></h4>
 
+    <br>
     {% if user.userprofile.profile_image %}
         <p><img src = "{{ user.userprofile.profile_image }}" alt="description" width="200" height="88" /></p>
     {% endif %}
+    <br>
+    <h4><strong>Hér getur þú séð yfirlit yfir þínar eignir, breytt lykilorði og fleira</strong></h4>
     <form class="form form-horizontal" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ u_form|crispy }}
         {{ p_form|crispy }}
         <br>
         <input type="submit" class="btn btn-primary" value="Uppfæra" />
-        <li class="btn ">
-                    <a class="nav-link" href="{% url 'my_estates' %}">Mínar eignir<span class="sr-only">(current)</span></a>
-                </li>
+
+    <li class="btn btn-outline-light">
+    <a class="nav-link" href="{% url 'my_estates' %}">Mínar eignir<span class="sr-only">(current)</span></a>
+    </li>
     </form>
 
 {% endblock %}
