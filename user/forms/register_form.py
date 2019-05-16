@@ -4,7 +4,6 @@ from django.contrib.auth.forms import UserCreationForm
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
-    # name = forms.CharField(max_length=255)
 
     # leyfir enn skráningu á sömu emailum!!!
 
@@ -18,3 +17,4 @@ class UserRegisterForm(UserCreationForm):
             'password1',
             'password2'
             ]
+

@@ -14,7 +14,7 @@ class ProfileForm(ModelForm):
             'phone': widgets.TextInput(attrs={'class': 'form-control'}),
             'street': widgets.TextInput(attrs={'class': 'form-control'}),
             'street.region_code': widgets.Select(attrs={'class': 'form-control'}),
-            # 'kingdom': forms.widgets.Select(attrs = { 'class': 'form-control' }),
+            #'kingdom': forms.widgets.Select(attrs = { 'class': 'form-control' }),
             'estates': widgets.Select(attrs={'class': 'form-control'}),
             'bio': widgets.Textarea(attrs={'rows': 5, 'cols': 5}),
             # 'description': forms.wwidgets.Textarea(attrs={'rows': 5, 'cols': 5}),
