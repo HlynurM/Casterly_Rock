@@ -87,7 +87,7 @@ def update_estate(request, id):
 
             return redirect('estate_overview', id=id)
     else:
-        print("Or else!!!")
+        # print("Or else!!!")
         estate_form = UpdateEstateForm(instance=the_estate)
         details_form = UpdateDetailsForm(instance=the_details)
         # images = UpdateEstateForm(EstateImage, estate_id=id)
