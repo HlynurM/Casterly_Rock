@@ -22,7 +22,7 @@ urlpatterns = [
     path('estates/', include('estates.urls')),
     path('user/', include('user.urls')),
     path('sales/', include(('sales.urls'))),
-    path('company/', include(('company.urls')))
+    #path('company/', include(('company.urls')))
 ]
 
 # urlpatterns = [
