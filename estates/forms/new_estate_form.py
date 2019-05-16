@@ -23,7 +23,7 @@ class CreateEstateForm(ModelForm):
 
 
 class UpdateEstateForm(ModelForm):
-    image = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    image = forms.CharField(required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     class Meta:
         model = Estates

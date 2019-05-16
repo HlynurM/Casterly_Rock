@@ -71,6 +71,7 @@ def remove_estate(request, id):
 def update_estate(request, id):
     the_estate = get_object_or_404(Estates, pk=id)
     the_details = get_object_or_404(EstateDetails, estate_id=id)
+    # images = get_object_or_404(EstateImage, estate_id=id)
 
     if request.method == 'POST':
         update_estate_form = UpdateEstateForm(data=request.POST, instance=the_estate)
@@ -89,6 +90,7 @@ def update_estate(request, id):
         print("Or else!!!")
         estate_form = UpdateEstateForm(instance=the_estate)
         details_form = UpdateDetailsForm(instance=the_details)
+        # images = UpdateEstateForm(EstateImage, estate_id=id)
 
     context = {
         'estate_form': estate_form,
