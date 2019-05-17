@@ -8,8 +8,7 @@ class CreateEstateForm(ModelForm):
     class Meta:
         model = Estates
         exclude = ['id', 'user']
-        fields = ['on_sale',
-                  'name',
+        fields = ['name',
                   'short_description',
                   'description',
                   'Slóð_á_mynd',
@@ -27,7 +26,7 @@ class CreateEstateForm(ModelForm):
                   'category',
                   'price']
         # fields = ['name', 'short_description', 'description', 'address', 'category', 'price', 'on_sale']
-        labels = {
+        plabels = {
             "name": "Nafn",
             "short_description": "Stutt og hnitmiðuð fyrirsögn",
             "description": "Lýsing á eign",
@@ -35,7 +34,6 @@ class CreateEstateForm(ModelForm):
             "category": "Flokkur",
             "price": "Verð á eign í €",
             "user": "Eigandi",
-            "on_sale": "Er eignin á sölu?",
             "size": "Stærð eignar",
             "rooms": "Herbergjafjöldi",
             "floors": "Hæðir",
@@ -55,7 +53,6 @@ class CreateEstateForm(ModelForm):
             'category': widgets.Select(attrs={'class': 'form-control col-md-6 mb-3'}),
             'price': widgets.NumberInput(attrs={'class': 'form-control col-md-6'}),
             'user': widgets.Select(attrs={'class': 'form-control col-md-6'}),
-            'on_sale': widgets.CheckboxInput(attrs={'class': 'checkbox col-md-6'}),
 
             'size': widgets.NumberInput(attrs={'class': 'form-control col-md-6'}),
             'rooms': widgets.NumberInput(attrs={'class': 'form-control col-md-6'}),
@@ -76,8 +73,7 @@ class UpdateEstateForm(ModelForm):
     class Meta:
         model = Estates
         exclude = ['id', 'user']
-        fields = ['on_sale',
-                  'name',
+        fields = ['name',
                   'short_description',
                   'description',
                   'Slóð_á_mynd',
@@ -102,7 +98,6 @@ class UpdateEstateForm(ModelForm):
             "category": "Flokkur",
             "price": "Verð á eign",
             "user": "Eigandi",
-            "on_sale": "Er eignin á sölu?",
             "size": "Stærð eignar",
             "rooms": "Herbergjafjöldi",
             "floors": "Hæðir",
@@ -122,7 +117,6 @@ class UpdateEstateForm(ModelForm):
             'category': widgets.Select(attrs={'class': 'form-control'}),
             'price': widgets.NumberInput(attrs={'class': 'form-control'}),
             'user': widgets.Select(attrs={'class': 'form-control'}),
-            'on_sale': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
 
             'size': widgets.NumberInput(attrs={'class': 'form-control'}),
             'rooms': widgets.NumberInput(attrs={'class': 'form-control'}),
