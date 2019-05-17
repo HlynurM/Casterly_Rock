@@ -14,7 +14,14 @@ def index(request):
             'id': x.id,
             'name': x.name,
             'description': x.short_description,
+            #dropdown
             'price': x.price,
+            'size': x.size,
+            'floors': x.floors,
+            'rooms': x.rooms,
+            #checkbox
+            'on_sale':x.on_sale,
+
             # 'category': x.category,
             'firstImage': x.estateimage_set.first().image
         } for x in Estates.objects.filter(
