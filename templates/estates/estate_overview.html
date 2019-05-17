@@ -90,14 +90,14 @@
     {% if user.is_authenticated %}
         <div class="text-left">
             <a href="{% url 'sale-index' estate.id %}" class="btn btn-outline-danger">Kaupa</a>
-            <a href="{% url 'update_estate' estate.id %}" class="btn btn-outline-danger">Uppfæra upplýsingar</a>
-            <a href="{% url 'remove_estate' estate.id %}" class="btn btn-danger">Eyða eign</a>
         </div>
     {% else %}
         <a href="{% url 'estates-index' %}" class="btn btn-outline-danger">Aftur á forsíðu</a>
     {% endif %}
-
-
+    {% if user.is_authenticated and user.id == estate.user_id %}
+    <a href="{% url 'update_estate' estate.id %}" class="btn btn-outline-danger">Uppfæra upplýsingar</a>
+    <a href="{% url 'remove_estate' estate.id %}" class="btn btn-danger">Eyða eign</a>
+    {% endif %}
 
 
 

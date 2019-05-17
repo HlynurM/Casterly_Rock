@@ -78,6 +78,7 @@ def remove_estate(request, id):
     return redirect('estates-index')
 
 
+
 def update_estate(request, id):
     the_estate = get_object_or_404(Estates, pk=id)
 
