@@ -7,11 +7,11 @@ class NewCreditCardForm(ModelForm):
     class Meta:
         model = Sales
         exclude = [ 'id' ]
-        fields = [
-            'credit_number',
-            'sec_number',
-            'credit_amount'
-        ]
+        # fields = [
+        #     'credit_number',
+        #     'sec_number',
+        #     'credit_amount'
+        # ]
         widgets = {
             'credit_number': widgets.TextInput(attrs={'class': 'form-control'}),
             'sec_number': widgets.NumberInput(attrs={'class': 'form-control'}),
