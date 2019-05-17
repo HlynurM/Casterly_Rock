@@ -58,7 +58,8 @@ def add_new_estate(request):
         if estate_form.is_valid():
             estate = estate_form.save()  # save the form into database
             estate_image = EstateImage(image=request.POST['Slóð_á_mynd'], estate=estate)
-            estate_image.save()  # save the image into database
+            if estate_image.image != "":
+                estate_image.save()  # save the image into database
             messages.success(request, f'Skráning á eign tókst.')
             return redirect('estates-index')
     else:
@@ -86,7 +87,8 @@ def update_estate(request, id):
         if estate_form.is_valid():
             estate = estate_form.save()
             estate_image = EstateImage(image=request.POST['Slóð_á_mynd'], estate=estate)
-            estate_image.save()  # save the image into database
+            if estate_image.image != "":
+                estate_image.save()  # save the image into database
             messages.success(request, f'Eign uppfærð.')
             return redirect('estate_overview', id=id)
     else:
