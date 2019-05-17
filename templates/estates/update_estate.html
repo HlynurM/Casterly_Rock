@@ -14,10 +14,8 @@
         <form class="form form-horizontal" action="{% url 'update_estate' id %}" method="post">
             {% csrf_token %}
 
-{#            <div class="form-group">#}
 
                 {{ estate_form|crispy }}
-{#                {{ details_form|crispy }}#}
 
                 <div class="text-right">
                     <input type="submit"
@@ -26,7 +24,6 @@
                            style="clear:both; margin: 10px 0"
                     />
                 </div>
-{#            </div>#}
         </form>
     </div>
 
