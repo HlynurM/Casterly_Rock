@@ -3,7 +3,7 @@ from estates.models import Estates, EstateImage, EstateDetails
 from django.contrib.auth.models import User
 # from django.http import JsonResponse
 # from sales.models import Sales
-from sales.forms.new_sale import NewCreditCardForm
+from sales.forms.new_sale_form import NewCreditCardForm
 from django.contrib import messages
 
 
@@ -19,21 +19,22 @@ def start_sale(request, id):
 
 
 def new_card_info(request, id):
-    """TODO: Get info on user and estate"""
-    #     if request.method == 'POST':
-    #         form = NewCreditCardForm(data = request.POST)
-    #         if form.is_valid():
-    #             form.save()
-    #             messages.success(request, f'Skráning hefur tekist!')
-    #             return redirect('/')
-    #         else:
-    #             messages.error(request, f'Einhver villa hefur komið upp við skráningu. Fylgjið leiðbeiningum')
-    #     else:
-    #         form = NewCreditCardForm()
+    if request.method == 'POST':
+        kredit_form = NewCreditCardForm(data=request.POST)
+        print(f'fyllt kreditform {kredit_form}')
+        if kredit_form.is_valid():
+            estate = kredit_form.save()  # save the form into database
+            messages.success(request, f'Skráning á eign tókst.')
+            return redirect('sale-confirm')
+    else:
+        # print("kredit form")
+        kredit_form = NewCreditCardForm()
+        # print(f'inside kredit form {kredit_form}')
     #
     context = {
         'estate': get_object_or_404(Estates, pk=id),
-        'client': request.user
+        'client': request.user,
+        'kredit_form': kredit_form
     }
     return render(request, 'sales/credit_card.html', context)
 
