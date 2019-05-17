@@ -41,6 +41,16 @@ class Estates(models.Model):
     address = models.ForeignKey(Address, on_delete=models.CASCADE, blank=True)
     on_sale = models.BooleanField(blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    size = models.IntegerField(default=0)
+    rooms = models.IntegerField(default=0)
+    floors = models.IntegerField(default=0)
+    towers = models.IntegerField(default=0)
+    ballroom = models.BooleanField(null=True)
+    tower_office = models.BooleanField(null=True)
+    moat = models.BooleanField(null=True)
+    stables = models.BooleanField(null=True)
+    dungeon = models.BooleanField(null=True)
+    drawbridge = models.BooleanField(null=True)
 
     def __str__(self):
         return self.name

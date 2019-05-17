@@ -32,37 +32,37 @@
             Vindubrú:
         </div>
         <div class="flex-item item2">
-            {{ estate.estatedetails.size }}<br>
-            {{ estate.estatedetails.rooms }}<br>
-            {{ estate.estatedetails.floors }}<br>
-            {{ estate.estatedetails.towers }}<br>
+            {{ estate.size }}<br>
+            {{ estate.rooms }}<br>
+            {{ estate.floors }}<br>
+            {{ estate.towers }}<br>
 
-            {% if estate.estatedetails.ballroom == True %}
+            {% if estate.ballroom == True %}
                 Já
             {% else %}
                 Nei
             {% endif %}<br>
-            {% if estate.estatedetails.tower_office == True %}
+            {% if estate.tower_office == True %}
                 Já
             {% else %}
                 Nei
             {% endif %}<br>
-            {% if estate.estatedetails.moat == True %}
+            {% if estate.moat == True %}
                 Já
             {% else %}
                 Nei
             {% endif %}<br>
-            {% if estate.estatedetails.stables == True %}
+            {% if estate.stables == True %}
                 Já
             {% else %}
                 Nei
             {% endif %}<br>
-            {% if estate.estatedetails.dungeon == True %}
+            {% if estate.dungeon == True %}
                 Já
             {% else %}
                 Nei
             {% endif %}<br>
-            {% if estate.estatedetails.drawbridge == True %}
+            {% if estate.drawbridge == True %}
                 Já
             {% else %}
                 Nei
