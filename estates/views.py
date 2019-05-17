@@ -51,6 +51,7 @@ def get_estate_by_id(request, id):
     })
 
 
+
 def add_new_estate(request):
     if request.method == 'POST':
         estate_form = CreateEstateForm(data=request.POST)
