@@ -39,7 +39,7 @@ class Estates(models.Model):
     price = models.FloatField()
     category = models.ForeignKey(EstateCategory, on_delete=models.CASCADE)
     address = models.ForeignKey(Address, on_delete=models.CASCADE, blank=True)
-    on_sale = models.BooleanField(blank=True)
+    on_sale = models.BooleanField(default=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     size = models.IntegerField(default=0)
     rooms = models.IntegerField(default=0)

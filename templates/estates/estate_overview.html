@@ -75,14 +75,13 @@
         <div class="flex-item item3">
             <h4 id="price">€{{ estate.price }},-</h4>
             <p>Hafa samband:<br>
-                <a href="mailto:emailseljanda">Við seljendur</a><br>
-                <a href="mailto:xaro@casterlyrock.we">Við fasteignasala</a></p>
+                <a href="mailto:{{ user.email }}">Við seljanda</a><br>
 
-            <a href="{% url 'sale-index' estate.id %}" class="btn btn-outline-danger">Kaupa</a>
+
 
         </div>
     </div>
-
+    <br><br><br><br><br><br><br>
     <div class="about">
         <p>{{ estate.description }}
         </p>
@@ -90,14 +89,14 @@
     {% if user.is_authenticated %}
         <div class="text-left">
             <a href="{% url 'sale-index' estate.id %}" class="btn btn-outline-danger">Kaupa</a>
+        </div>
+    {% endif %}
+    {% if user.is_authenticated and user.id == estate.user_id %}
+        <div class="text-left">
             <a href="{% url 'update_estate' estate.id %}" class="btn btn-outline-danger">Uppfæra upplýsingar</a>
             <a href="{% url 'remove_estate' estate.id %}" class="btn btn-danger">Eyða eign</a>
         </div>
-    {% else %}
-        <a href="{% url 'estates-index' %}" class="btn btn-outline-danger">Aftur á forsíðu</a>
     {% endif %}
-
-
 
 
 
