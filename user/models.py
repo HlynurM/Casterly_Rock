@@ -17,9 +17,9 @@ class UserProfile(models.Model):
     region = models.ForeignKey(RegionCode, default=1 , on_delete=models.CASCADE)
     kingdom = models.ForeignKey(Kingdom, default=1, on_delete=models.CASCADE)
     #address = models.ForeignKey(Address, on_delete=models.CASCADE)
-    #owned_property = models.OneToOneField(Estates, on_delete=models.CASCADE)
     bio = models.TextField(blank=True)
     profile_image = models.CharField(max_length=999, blank=True)
+    #owned_property = models.OneToOneField(Estates, on_delete=models.CASCADE)
     #profile_image = models.ImageField(default='profile_pics/default.jpg', upload_to='profile_pics', blank=True)
 
     def __str__(self):

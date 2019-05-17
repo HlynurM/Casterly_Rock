@@ -1,5 +1,7 @@
 # Create your views here.
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
+from estates.models import Estates
 from user.forms.profile_form import ProfileForm, UserForm
 from user.forms.register_form import UserRegisterForm
 from django.contrib.auth.decorators import login_required
@@ -59,4 +61,35 @@ def index(request):
     })
 
 def my_estates(request):
-    return render(request, 'user/my_estates.html')
+    '''Forsiduyfirlit'''
+    myuserid = UserProfile.objects.filter(user = request.user).first().user.id
+
+    for estate in Estates.objects.filter(
+
+    ):
+        print(estate)
+
+    if 'search_filter' in request.GET:
+        search_filter = request.GET.get('search_filter', '')
+        estates = [{
+            'id': x.id,
+            'name': x.name,
+            'description': x.short_description,
+            'price': x.price,
+            # 'address': x.address,
+            'firstImage': x.estateimage_set.first().image
+        } for x in Estates.objects.filter(
+            Q(name__icontains=search_filter) or
+            Q(description__icontains=search_filter) or
+            Q(price__icontains=search_filter) or
+            Q(address__street_name__icontains=search_filter) or
+            Q(address__region_code__icontains=search_filter) or
+            Q(address__region_code__kingdom___icontains=search_filter)
+
+        )]
+        # print(estates)
+        return JsonResponse({'data': estates})
+    context = {
+        'estates': Estates.objects.all().order_by('name')
+    }
+    return render(request, 'user/my_estates.html', context)

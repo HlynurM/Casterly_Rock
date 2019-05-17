@@ -9,16 +9,14 @@
 
 
     <div class="content-section">
-    <div class="media">
-          <img class="rounded-circle account-img" src = "{{ user.userprofile.profile_image }}">
-          <div class="media-body">
+        <div class="media">
+            <img class="rounded-circle account-img" src = "{{ user.userprofile.profile_image }}">
         </div>
-      </div>
-
-
+    </div>
 
     <br>
-    <h4><strong>Hér getur þú séð yfirlit yfir þínar eignir, breytt lykilorði og fleira</strong></h4>
+
+    <h4><strong>Hér getur þú séð yfirlit yfir þínar eignir, breytt upplýsingum og fleira</strong></h4>
     <form class="form form-horizontal" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ u_form|crispy }}
