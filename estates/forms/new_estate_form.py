@@ -8,7 +8,7 @@ class CreateEstateForm(ModelForm):
 
     class Meta:
         model = Estates
-        exclude = ['id']
+        exclude = ['id', 'user']
         fields = ['on_sale',
                   'name',
                   'short_description',
@@ -26,8 +26,7 @@ class CreateEstateForm(ModelForm):
                   'drawbridge',
                   'address',
                   'category',
-                  'price',
-                  'user']
+                  'price']
         # fields = ['name', 'short_description', 'description', 'address', 'category', 'price', 'on_sale']
         labels = {
             "name": "Nafn",
@@ -77,7 +76,7 @@ class UpdateEstateForm(ModelForm):
 
     class Meta:
         model = Estates
-        exclude = ['id']
+        exclude = ['id', 'user']
         fields = ['on_sale',
                   'name',
                   'short_description',
@@ -95,8 +94,7 @@ class UpdateEstateForm(ModelForm):
                   'drawbridge',
                   'address',
                   'category',
-                  'price',
-                  'user']
+                  'price',]
         labels = {
             "name": "Nafn",
             "short_description": "Stutt og hnitmiðuð fyrirsögn",
