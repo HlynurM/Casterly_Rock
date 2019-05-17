@@ -1,34 +1,89 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
-    <h1>Kredit kort</h1>
-    <form class="form form-horizontal" method="post">
+    <div class="offset-1 col-md-8">
 
-        <div class="flex-container">
-            {# TODO:   Fara i gegnum allar myndir#}
-            {% for photo in estate.estateimage_set.all %}
-                <div class="flex-item">
-                    <img src="{{ photo.image }}" class="estate-img thumbnail"/>
+        <h3>Skrá inn kredit kort</h3>
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <div class="row">
+                    <div class="col"><h4>{{ estate.name }}</h4></div>
                 </div>
-            {% endfor %}
+
+                <div class="row">
+                    <div class="col-md-4"><strong>Heimilisfang:</strong></div>
+                    <div class="col-md-8">{{ estate.address.street_name }}, {{ estate.address.region_code }}</div>
+                    <div class="col-md-4"><strong>Konungsríki:</strong></div>
+                    <div class="col-md-8">{{ estate.address.region_code.kingdom }}</div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-md-4"><strong>Stærð:</strong></div>
+                    <div class="col-md-8">{{ estate.size }} fm</div>
+                    <div class="col-md-4"><strong>Herbergi:</strong></div>
+                    <div class="col-md-8">{{ estate.rooms }}</div>
+                    <div class="col-md-4"><strong>Hæðir:</strong></div>
+                    <div class="col-md-8">{{ estate.floors }}</div>
+                    <div class="col-md-4"><strong>Turnar:</strong></div>
+                    <div class="col-md-8">{{ estate.towers }}</div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-md-4"><strong>Eigandi:</strong></div>
+                    <div class="col-md-8">{{ estate.user.get_full_name }}</div>
+                </div>
+                <br>
+            </div>
+
+            <div class="col-md-6 text-right">
+                <img src="{{ estate.estateimage_set.first }}" class="estate-img thumbnail" alt="{{ estate.name }}"/>
+            </div>
+
+        </div>
+        <br>
+        <div class="row">
+
+            <div class="col-md-6"><h5>Korta upplýsingar</h5></div>
+            <div class="col-md-6"></div>
+            <div class="col-md-12">
+                <hr class="mb-4">
+            </div>
+
+            <div class="col-md-6">
+                <div class="upplysingar">{{ client.get_full_name }}</div>
+            </div>
+            <div class="col-md-6">
+                <div class="upplysingar">{{ client.userprofile.street }}, {{ client.userprofile.region }}</div>
+            </div>
+
+            {% csrf_token %}
+
+            <h1>Hello hello</h1>
+
+            {{ kredit_form|crispy }}
+
+            <h1>Hello hello</h1>
+
+            <hr class="mb-4">
+
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-md-12 text-left">
+                <a href="{% url 'sale-card-info' estate.id %}" class="btn btn-danger btn-block">Vista
+                    kortaupplýsingar</a>
+            </div>
         </div>
 
-        <div class="flex-item item1">
-            <h3>{{ estate.name }}</h3>
-            <h4>Price: ${{ estate.price }}</h4>
-            <h4>{{ estate.short_description }}</h4>
-            <p>Address: {{ estate.address.street_name }}, {{ estate.address.region_code }}<br>
-                Kingdom: {{ estate.address.region_code.kingdom }}</p>
-            <p>Current owner: {{ estate.user.get_full_name }}</p>
-        </div>
-        <div class="flex-item item3">
-
-            <a href="{% url 'sale-card-info' estate.id %}" class="btn btn-outline-danger">Breyta upplýsingum</a>
-            <a href="{% url 'sale-card-info' estate.id %}" class="btn btn-outline-danger">Skrá Greiðslukort</a>
-
-        </div>
-
-    </form>
+    </div>
 
 {% endblock %}
