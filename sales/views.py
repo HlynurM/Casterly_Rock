@@ -11,15 +11,17 @@ from django.contrib import messages
 def start_sale(request, id):
     """TODO: Starts the sale with the correct Estate selected"""
 
-    print(f'ID of sale is: {id}.')
+    # print(f'ID of sale is: {id}.')
+    # print(f'client is {request.user}')
 
     context = {
-        'estate': get_object_or_404(Estates, pk=id)
+        'estate': get_object_or_404(Estates, pk=id),
+        'client': request.user
     }
     return render(request, 'sales/new_sale.html', context)
 
 
-def new_cart_info(request, id):
+def new_card_info(request, id):
     """TODO: Get info on user and estate"""
 #     if request.method == 'POST':
 #         form = NewCreditCardForm(data = request.POST)
@@ -34,6 +36,6 @@ def new_cart_info(request, id):
 #
     context = {
         'estate': get_object_or_404(Estates, pk=id),
-        'user_info': get_object_or_404(User, pk=id),
+        'client': request.user
     }
-    return render(request, 'sales/new_sale.html', context)
+    return render(request, 'sales/credit_card.html', context)
