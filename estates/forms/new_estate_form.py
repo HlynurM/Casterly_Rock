@@ -9,7 +9,25 @@ class CreateEstateForm(ModelForm):
     class Meta:
         model = Estates
         exclude = ['id']
-        # fields = ['name', 'short_description', 'description', 'address', 'category', 'price', 'user', 'on_sale']
+        fields = ['on_sale',
+                  'name',
+                  'short_description',
+                  'description',
+                  'Slóð_á_mynd',
+                  'size',
+                  'rooms',
+                  'floors',
+                  'towers',
+                  'ballroom',
+                  'tower_office',
+                  'moat',
+                  'stables',
+                  'dungeon',
+                  'drawbridge',
+                  'address',
+                  'category',
+                  'price',
+                  'user']
         # fields = ['name', 'short_description', 'description', 'address', 'category', 'price', 'on_sale']
         labels = {
             "name": "Nafn",
@@ -19,7 +37,7 @@ class CreateEstateForm(ModelForm):
             "category": "Flokkur",
             "price": "Verð á eign",
             "user": "Eigandi",
-            "on_sale": "Er eignin á sölu",
+            "on_sale": "Er eignin á sölu?",
             "size": "Stærð eignar",
             "rooms": "Herbergjafjöldi",
             "floors": "Hæðir",
@@ -32,25 +50,25 @@ class CreateEstateForm(ModelForm):
             "drawbridge": "Er vindubrú",
         }
         widgets = {
-            'name': widgets.TextInput(attrs={'class': 'form-control'}),
-            'short_description': widgets.TextInput(attrs={'class': 'form-control'}),
+            'name': widgets.TextInput(attrs={'class': 'form-control col-12'}),
+            'short_description': widgets.TextInput(attrs={'class': 'form-control col-12'}),
             'description': widgets.Textarea(attrs={'rows': 10, 'cols': 5}),
-            'address': widgets.Select(attrs={'class': 'form-control'}),
-            'category': widgets.Select(attrs={'class': 'form-control'}),
-            'price': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'user': widgets.Select(attrs={'class': 'form-control'}),
-            'on_sale': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
+            'address': widgets.Select(attrs={'class': 'form-control col-6'}),
+            'category': widgets.Select(attrs={'class': 'form-control col-6'}),
+            'price': widgets.NumberInput(attrs={'class': 'form-control col-6'}),
+            'user': widgets.Select(attrs={'class': 'form-control col-6'}),
+            'on_sale': widgets.CheckboxInput(attrs={'class': 'checkbox col-6'}),
 
-            'size': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'rooms': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'floors': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'towers': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'ballroom': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
-            'tower_office': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
-            'moat': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
-            'stables': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
-            'dungeon': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
-            'drawbridge': widgets.CheckboxInput(attrs={'class': 'checkbox'})
+            'size': widgets.NumberInput(attrs={'class': 'form-control col-6'}),
+            'rooms': widgets.NumberInput(attrs={'class': 'form-control col-6'}),
+            'floors': widgets.NumberInput(attrs={'class': 'form-control col-6'}),
+            'towers': widgets.NumberInput(attrs={'class': 'form-control col-6'}),
+            'ballroom': widgets.CheckboxInput(attrs={'class': 'checkbox col-6'}),
+            'tower_office': widgets.CheckboxInput(attrs={'class': 'checkbox col-6'}),
+            'moat': widgets.CheckboxInput(attrs={'class': 'checkbox col-6'}),
+            'stables': widgets.CheckboxInput(attrs={'class': 'checkbox col-6'}),
+            'dungeon': widgets.CheckboxInput(attrs={'class': 'checkbox col-6'}),
+            'drawbridge': widgets.CheckboxInput(attrs={'class': 'checkbox col-6'})
         }
 
 
@@ -60,8 +78,25 @@ class UpdateEstateForm(ModelForm):
     class Meta:
         model = Estates
         exclude = ['id']
-        # fields = ['name', 'short_description', 'description', 'address', 'category', 'price', 'user', 'on_sale']
-        # fields = ['name', 'short_description', 'description', 'address', 'category', 'price', 'on_sale']
+        fields = ['on_sale',
+                  'name',
+                  'short_description',
+                  'description',
+                  'Slóð_á_mynd',
+                  'size',
+                  'rooms',
+                  'floors',
+                  'towers',
+                  'ballroom',
+                  'tower_office',
+                  'moat',
+                  'stables',
+                  'dungeon',
+                  'drawbridge',
+                  'address',
+                  'category',
+                  'price',
+                  'user']
         labels = {
             "name": "Nafn",
             "short_description": "Stutt og hnitmiðuð fyrirsögn",
@@ -70,7 +105,7 @@ class UpdateEstateForm(ModelForm):
             "category": "Flokkur",
             "price": "Verð á eign",
             "user": "Eigandi",
-            "on_sale": "Er eignin á sölu",
+            "on_sale": "Er eignin á sölu?",
             "size": "Stærð eignar",
             "rooms": "Herbergjafjöldi",
             "floors": "Hæðir",
@@ -105,62 +140,62 @@ class UpdateEstateForm(ModelForm):
         }
 
 
-class AddDetailsForm(ModelForm):
-    class Meta:
-        model = EstateDetails
-        exclude = ['id', 'estate']
-        fields = ['size','rooms','floors','towers','ballroom','tower_office','moat','stables','dungeon','drawbridge']
-        labels = {
-            "size": "Stærð eignar",
-            "rooms": "Herbergjafjöldi",
-            "floors": "Hæðir",
-            "towers": "Hversu margir turnar",
-            "ballroom": "Er danssalur",
-            "tower_office": "Er turnskrifstofa",
-            "moat": "Er kastala síki",
-            "stables": "Eru hesthús",
-            "dungeon": "Fylgir dýflissa með",
-            "drawbridge": "Er vindubrú",
-        }
-        widgets = {
-            'size': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'rooms': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'floors': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'towers': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'ballroom': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
-            'tower_office': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
-            'moat': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
-            'stables': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
-            'dungeon': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
-            'drawbridge': widgets.CheckboxInput(attrs={'class': 'checkbox'})
-        }
-
-class UpdateDetailsForm(ModelForm):
-    class Meta:
-        model = EstateDetails
-        exclude = ['id', 'estate']
-        fields = ['size','rooms','floors','towers','ballroom','tower_office','moat','stables','dungeon','drawbridge']
-        labels = {
-            "size": "Stærð eignar",
-            "rooms": "Herbergjafjöldi",
-            "floors": "Hæðir",
-            "towers": "Hversu margir turnar",
-            "ballroom": "Er danssalur",
-            "tower_office": "Er turnskrifstofa",
-            "moat": "Er kastala síki",
-            "stables": "Eru hesthús",
-            "dungeon": "Fylgir dýflissa með",
-            "drawbridge": "Er vindubrú",
-        }
-        widgets = {
-            'size': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'rooms': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'floors': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'towers': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'ballroom': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
-            'tower_office': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
-            'moat': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
-            'stables': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
-            'dungeon': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
-            'drawbridge': widgets.CheckboxInput(attrs={'class': 'checkbox'})
-        }
+# class AddDetailsForm(ModelForm):
+#     class Meta:
+#         model = EstateDetails
+#         exclude = ['id', 'estate']
+#         fields = ['size','rooms','floors','towers','ballroom','tower_office','moat','stables','dungeon','drawbridge']
+#         labels = {
+#             "size": "Stærð eignar",
+#             "rooms": "Herbergjafjöldi",
+#             "floors": "Hæðir",
+#             "towers": "Hversu margir turnar",
+#             "ballroom": "Er danssalur",
+#             "tower_office": "Er turnskrifstofa",
+#             "moat": "Er kastala síki",
+#             "stables": "Eru hesthús",
+#             "dungeon": "Fylgir dýflissa með",
+#             "drawbridge": "Er vindubrú",
+#         }
+#         widgets = {
+#             'size': widgets.NumberInput(attrs={'class': 'form-control'}),
+#             'rooms': widgets.NumberInput(attrs={'class': 'form-control'}),
+#             'floors': widgets.NumberInput(attrs={'class': 'form-control'}),
+#             'towers': widgets.NumberInput(attrs={'class': 'form-control'}),
+#             'ballroom': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
+#             'tower_office': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
+#             'moat': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
+#             'stables': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
+#             'dungeon': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
+#             'drawbridge': widgets.CheckboxInput(attrs={'class': 'checkbox'})
+#         }
+#
+# class UpdateDetailsForm(ModelForm):
+#     class Meta:
+#         model = EstateDetails
+#         exclude = ['id', 'estate']
+#         fields = ['size','rooms','floors','towers','ballroom','tower_office','moat','stables','dungeon','drawbridge']
+#         labels = {
+#             "size": "Stærð eignar",
+#             "rooms": "Herbergjafjöldi",
+#             "floors": "Hæðir",
+#             "towers": "Hversu margir turnar",
+#             "ballroom": "Er danssalur",
+#             "tower_office": "Er turnskrifstofa",
+#             "moat": "Er kastala síki",
+#             "stables": "Eru hesthús",
+#             "dungeon": "Fylgir dýflissa með",
+#             "drawbridge": "Er vindubrú",
+#         }
+#         widgets = {
+#             'size': widgets.NumberInput(attrs={'class': 'form-control'}),
+#             'rooms': widgets.NumberInput(attrs={'class': 'form-control'}),
+#             'floors': widgets.NumberInput(attrs={'class': 'form-control'}),
+#             'towers': widgets.NumberInput(attrs={'class': 'form-control'}),
+#             'ballroom': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
+#             'tower_office': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
+#             'moat': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
+#             'stables': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
+#             'dungeon': widgets.CheckboxInput(attrs={'class': 'checkbox'}),
+#             'drawbridge': widgets.CheckboxInput(attrs={'class': 'checkbox'})
+#         }

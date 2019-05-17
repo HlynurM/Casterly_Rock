@@ -62,38 +62,14 @@ def index(request):
     })
 
 def my_estates(request):
-    '''Forsiduyfirlit'''
-    myuserid = UserProfile.objects.filter(user = request.user).first().user.id
-    myestates = []
+    '''Mínar eignir:'''
+    my_user_id = UserProfile.objects.filter(user = request.user).first().user.id
+    my_estates = []
     for estate in Estates.objects.filter():
-        if estate.user_id == myuserid:
-            print(estate)
-            myestates.append(estate)
+        if estate.user_id == my_user_id:
+            my_estates.append(estate)
+        context = {
+            'estates': my_estates
+        }
 
-    return render(request, 'user/my_estates.html', myestates)
-
-
-    if 'search_filter' in request.GET:
-        search_filter = request.GET.get('search_filter', '')
-        estates = [{
-            'id': x.id,
-            'name': x.name,
-            'description': x.short_description,
-            'price': x.price,
-            # 'address': x.address,
-            'firstImage': x.estateimage_set.first().image
-        } for x in Estates.objects.filter(
-            Q(name__icontains=search_filter) or
-            Q(description__icontains=search_filter) or
-            Q(price__icontains=search_filter) or
-            Q(address__street_name__icontains=search_filter) or
-            Q(address__region_code__icontains=search_filter) or
-            Q(address__region_code__kingdom___icontains=search_filter)
-
-        )]
-        # print(estates)
-        return JsonResponse({'data': estates})
-    context = {
-        'estates': Estates.objects.all().order_by('name')
-    }
     return render(request, 'user/my_estates.html', context)

@@ -5,30 +5,31 @@
 
     <div class="offset-1 col-md-10">
 
+                <h3>Skráðu niður nýja eign</h3>
 
-        <h3>Skráðu niður nýja eign</h3>
+                <h4>Hæ {{ user.get_full_name }}</h4>
+                <p>Hér að neðan getur þú skráð inn nýja eign. Settu þær upplýsingar sem við eiga í viðkomandi reiti.</p>
 
-        <h4>Hæ {{ user.get_full_name }}</h4>
-        <p>Hér að neðan getur þú skráð inn nýja eign. Settu þær upplýsingar sem við eiga í viðkomandi reiti.</p>
+                <form class="form form-horizontal" action="{% url 'add_new_estate' %}" enctype="multipart/form-data"
+                      method="post">
+                    {% csrf_token %}
 
-        <form class="form form-horizontal" action="{% url 'add_new_estate' %}" enctype="multipart/form-data"
-              method="post">
-            {% csrf_token %}
+{#                        <div class="row">#}
 
-            {#            <div class="form-group">#}
+                            {{ estate_form|crispy }}
 
-            {{ estate_form|crispy }}
-{#            {{ details_form|crispy }}#}
-            <br>
+{#                        </div>#}
 
-            <div class="text-left">
-                <input type="submit"
-                       value="Create"
-                       class="btn btn-danger"
-                />
-            </div>
-            {#            </div>#}
-        </form>
+                    <br>
+
+                    <div class="text-left">
+                        <input type="submit"
+                               value="Create"
+                               class="btn btn-danger"
+                        />
+                    </div>
+                </form>
+
     </div>
 
 {% endblock content %}
