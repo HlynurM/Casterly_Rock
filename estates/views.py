@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.db.models import Q
 from estates.forms.new_estate_form import CreateEstateForm, UpdateEstateForm, AddDetailsForm, UpdateDetailsForm
 from estates.models import Estates, EstateImage, StarRating
+from django.contrib import messages
 
 
 def index(request):
@@ -51,6 +52,7 @@ def add_new_estate(request):
             estate = estate_form.save()  # save the form into database
             estate_image = EstateImage(image=request.POST['Slóð_á_mynd'], estate=estate)
             estate_image.save()  # save the image into database
+            messages.success(request, f'Skráning á eign tókst.')
             return redirect('estates-index')
     else:
         estate_form = CreateEstateForm()
@@ -64,6 +66,7 @@ def add_new_estate(request):
 def remove_estate(request, id):
     estate = get_object_or_404(Estates, pk=id)
     estate.delete()
+    messages.success(request, f'Eign fjarlægð.')
     return redirect('estates-index')
 
 
@@ -77,7 +80,7 @@ def update_estate(request, id):
             estate = estate_form.save()
             estate_image = EstateImage(image=request.POST['Slóð_á_mynd'], estate=estate)
             estate_image.save()  # save the image into database
-
+            messages.success(request, f'Eign uppfærð.')
             return redirect('estate_overview', id=id)
     else:
 
