@@ -188,6 +188,13 @@ a.my-foot:hover, .my-foot a:active {
     padding: 25px;
 }
 
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
 /*.form-control {*/
 /*    display: inline-block;*/
 /*    width: 80%;*/
