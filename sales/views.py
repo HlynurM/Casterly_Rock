@@ -10,6 +10,12 @@ from django.contrib import messages
 # Create your views here.
 def start_sale(request, id):
     """TODO: Starts the sale with the correct Estate selected"""
+    owner = get_object_or_404(Estates, pk=id)
+    client = get_object_or_404(User, id=request.user.id)
+    if client.id == owner.user_id:
+        # print(f'client: {client.id} and owner: {owner.user_id} are the same')
+        messages.error(request, f'VILLA: Ekki er hægt að kaupa það sem maður á.')
+        return redirect('estates-index')
 
     context = {
         'estate': get_object_or_404(Estates, pk=id),
@@ -51,6 +57,11 @@ def sale_confirm(request, id):
 
 def thank_you(request, id):
     """TODO: Starts the sale with the correct Estate selected"""
+    owner = get_object_or_404(Estates, pk=id)
+    client = get_object_or_404(User, id=request.user.id)
+    if client and owner:
+        owner.user_id = client.id
+        owner.save()
 
     context = {
         'estate': get_object_or_404(Estates, pk=id),

@@ -35,8 +35,12 @@
                 <br>
 
                 <div class="row">
-                    <div class="col-md-4"><strong>Eigandi:</strong></div>
+                    <div class="col-md-4"><strong>Seljandi:</strong></div>
                     <div class="col-md-8">{{ estate.user.get_full_name }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><strong>Kaupandi:</strong></div>
+                    <div class="col-md-8">{{ client.get_full_name }}</div>
                 </div>
                 <br>
             </div>
@@ -49,24 +53,24 @@
         <br>
         <div class="row">
 
-            <div class="col-md-6"><h5>Persónu upplýsingar</h5></div>
+            <div class="col-md-6"><h5>Staðfesting á upplýsingum</h5></div>
             <div class="col-md-6"></div>
             <div class="col-md-12">
                 <hr>
             </div>
 
             <div class="col-md-6">
-                <div class="upplysingar">{{ client.get_full_name }}</div>
+                <div class="upplysingar">Nafn: {{ client.get_full_name }}</div>
             </div>
             <div class="col-md-6">
-                <div class="upplysingar">{{ client.userprofile.street }}, {{ client.userprofile.region }}</div>
+                <div class="upplysingar">Heimilisfang: {{ client.userprofile.street }}, {{ client.userprofile.region }}</div>
             </div>
 
             <div class="col-md-6">
-                <div class="upplysingar">{{ client.userprofile.ssn }}</div>
+                <div class="upplysingar">Kennitala: {{ client.userprofile.ssn }}</div>
             </div>
             <div class="col-md-6">
-                <div class="upplysingar">{{ client.email }}</div>
+                <div class="upplysingar">Netfang: {{ client.email }}</div>
             </div>
 
 
@@ -81,10 +85,31 @@
 
         </div>
 
+        <hr class="mb-4">
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="upplysingar">Kortanúmer:</div>
+            </div>
+            <div class="col-md-8">
+                <div class="upplysingar">{{ client.creditcard_set.last.credit_number }}</div>
+            </div>
+            <div class="col-md-4">
+                <div class="upplysingar">CVC # :</div>
+            </div>
+            <div class="col-md-8">
+                <div class="upplysingar">{{ client.creditcard_set.last.sec_number }}</div>
+            </div>
+
+        </div>
+
+        <hr class="mb-4">
+        <br><br>
+
         <div class="row">
             <div class="col-md-12 text-left">
-                <a href="{% url 'sale-card-info' estate.id %}" class="btn btn-outline-danger">Breyta upplýsingum</a>
-                <a href="{% url 'sale-card-info' estate.id %}" class="btn btn-outline-danger">Skrá Greiðslukort</a>
+                <a href="{% url 'sale-thank-you' estate.id %}" class="btn btn-danger btn-block">Staðfesta</a>
             </div>
         </div>
 

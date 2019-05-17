@@ -26,7 +26,7 @@ class UserProfile(models.Model):
         return f'{self.user.username} Profile'
 
 class CreditCard(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     credit_number = models.CharField(max_length=19)
     sec_number = models.IntegerField(default=None)
-    credit_amount = models.FloatField(default=None)
+    credit_amount = models.FloatField(null=True, blank=True)
