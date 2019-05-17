@@ -64,25 +64,33 @@
                 <div class="upplysingar">{{ client.userprofile.street }}, {{ client.userprofile.region }}</div>
             </div>
 
-            {% csrf_token %}
+            <div>
+                <hr class="mb-4">
+                {{ kredit_form.credit_number }}<br>
+                {{ estate.address }}<br>
+                {{ client.get_full_name }}<br>
+                <hr class="mb-4">
+            </div>
+{#            <form class="form form-horizontal"#}
+{#                  action="{% url 'sale-card-info' id %}"#}
+{#                  enctype="multipart/form-data"#}
+{#                  method="post">#}
 
-            <h1>Hello hello</h1>
+                {% csrf_token %}
 
-            {{ kredit_form|crispy }}
+                {{ kredit_form|crispy }}
 
-            <h1>Hello hello</h1>
-
-            <hr class="mb-4">
-
+                <hr class="mb-4">
+                <div class="text-left">
+                    <input type="submit"
+                           value="Create"
+                           class="btn btn-danger btn-block"
+                    />
+                </div>
+{#            </form>#}
         </div>
         <br>
 
-        <div class="row">
-            <div class="col-md-12 text-left">
-                <a href="{% url 'sale-card-info' estate.id %}" class="btn btn-danger btn-block">Vista
-                    kortaupplýsingar</a>
-            </div>
-        </div>
 
     </div>
 

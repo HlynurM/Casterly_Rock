@@ -21,15 +21,15 @@ def start_sale(request, id):
 def new_card_info(request, id):
     if request.method == 'POST':
         kredit_form = NewCreditCardForm(data=request.POST)
-
+        print(f'fyllt kreditform {kredit_form}')
         if kredit_form.is_valid():
             estate = kredit_form.save()  # save the form into database
             messages.success(request, f'Skráning á eign tókst.')
             return redirect('sale-confirm')
     else:
-        print("kredit form")
+        # print("kredit form")
         kredit_form = NewCreditCardForm()
-        print(f'inside kredit form {kredit_form}')
+        # print(f'inside kredit form {kredit_form}')
     #
     context = {
         'estate': get_object_or_404(Estates, pk=id),
