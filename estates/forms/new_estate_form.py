@@ -50,25 +50,25 @@ class CreateEstateForm(ModelForm):
             "drawbridge": "Er vindubrú",
         }
         widgets = {
-            'name': widgets.TextInput(attrs={'class': 'form-control col-12'}),
-            'short_description': widgets.TextInput(attrs={'class': 'form-control col-12'}),
+            'name': widgets.TextInput(attrs={'class': 'form-control col-md-12'}),
+            'short_description': widgets.TextInput(attrs={'class': 'form-control col-md-12'}),
             'description': widgets.Textarea(attrs={'rows': 10, 'cols': 5}),
-            'address': widgets.Select(attrs={'class': 'form-control col-6'}),
-            'category': widgets.Select(attrs={'class': 'form-control col-6'}),
-            'price': widgets.NumberInput(attrs={'class': 'form-control col-6'}),
-            'user': widgets.Select(attrs={'class': 'form-control col-6'}),
-            'on_sale': widgets.CheckboxInput(attrs={'class': 'checkbox col-6'}),
+            'address': widgets.Select(attrs={'class': 'form-control col-md-6 mb-3'}),
+            'category': widgets.Select(attrs={'class': 'form-control col-md-6 mb-3'}),
+            'price': widgets.NumberInput(attrs={'class': 'form-control col-md-6'}),
+            'user': widgets.Select(attrs={'class': 'form-control col-md-6'}),
+            'on_sale': widgets.CheckboxInput(attrs={'class': 'checkbox col-md-6'}),
 
-            'size': widgets.NumberInput(attrs={'class': 'form-control col-6'}),
-            'rooms': widgets.NumberInput(attrs={'class': 'form-control col-6'}),
-            'floors': widgets.NumberInput(attrs={'class': 'form-control col-6'}),
-            'towers': widgets.NumberInput(attrs={'class': 'form-control col-6'}),
-            'ballroom': widgets.CheckboxInput(attrs={'class': 'checkbox col-6'}),
-            'tower_office': widgets.CheckboxInput(attrs={'class': 'checkbox col-6'}),
-            'moat': widgets.CheckboxInput(attrs={'class': 'checkbox col-6'}),
-            'stables': widgets.CheckboxInput(attrs={'class': 'checkbox col-6'}),
-            'dungeon': widgets.CheckboxInput(attrs={'class': 'checkbox col-6'}),
-            'drawbridge': widgets.CheckboxInput(attrs={'class': 'checkbox col-6'})
+            'size': widgets.NumberInput(attrs={'class': 'form-control col-md-6'}),
+            'rooms': widgets.NumberInput(attrs={'class': 'form-control col-md-6'}),
+            'floors': widgets.NumberInput(attrs={'class': 'form-control col-md-6'}),
+            'towers': widgets.NumberInput(attrs={'class': 'form-control col-md-6'}),
+            'ballroom': widgets.CheckboxInput(attrs={'class': 'checkbox col-md-6'}),
+            'tower_office': widgets.CheckboxInput(attrs={'class': 'checkbox col-md-6'}),
+            'moat': widgets.CheckboxInput(attrs={'class': 'checkbox col-md-6'}),
+            'stables': widgets.CheckboxInput(attrs={'class': 'checkbox col-md-6'}),
+            'dungeon': widgets.CheckboxInput(attrs={'class': 'checkbox col-md-6'}),
+            'drawbridge': widgets.CheckboxInput(attrs={'class': 'checkbox col-md-6'})
         }
 
 
