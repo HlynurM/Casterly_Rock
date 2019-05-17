@@ -5,9 +5,11 @@
     <div class="flex-container">
         {# TODO:   Fara i gegnum allar myndir#}
         {% for photo in estate.estateimage_set.all %}
-            <div class="flex-item">
-                <img src="{{ photo.image }}" class="estate-img thumbnail"/>
-            </div>
+            {% if photo.image %}
+                <div class="flex-item">
+                    <img src="{{ photo.image }}" class="estate-img thumbnail"/>
+                </div>
+            {% endif %}
         {% endfor %}
     </div>
     <div class="">
