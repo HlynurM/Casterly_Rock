@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -9,21 +10,26 @@
         <h3>Breyttu skráningu á þessari eign</h3>
 
         <h4>Hæ {{ user.get_full_name }}</h4>
-        <p>Hér að neðan getur þú skráð inn nýjar upplýsingar um eign þína. Settu þær upplýsingar sem við eiga í viðkomandi reiti.</p>
+        <p>Hér að neðan getur þú skráð inn nýjar upplýsingar um eign þína. Settu þær upplýsingar sem við eiga í
+            viðkomandi reiti.</p>
+
+        <hr class="mb-4">
 
         <form class="form form-horizontal" action="{% url 'update_estate' id %}" method="post">
             {% csrf_token %}
 
 
-                {{ estate_form|crispy }}
+            {{ estate_form|crispy }}
 
-                <div class="text-right">
-                    <input type="submit"
-                           value="Update"
-                           class="btn btn-danger"
-                           style="clear:both; margin: 10px 0"
-                    />
-                </div>
+            <hr class="mb-4">
+
+            <div class="text-right">
+                <input type="submit"
+                       value="Update"
+                       class="btn btn-danger btn-block"
+                       style="clear:both; margin: 10px 0"
+                />
+            </div>
         </form>
     </div>
 

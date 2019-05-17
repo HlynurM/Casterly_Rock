@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="offset-1 col-md-8">
+
+        <h3>Takk fyrir kaupin á {{ estate.name }}</h3>
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <div class="row">
+                    <div class="col"><h4>{{ estate.name }}</h4></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4"><strong>Heimilisfang:</strong></div>
+                    <div class="col-md-8">{{ estate.address.street_name }}, {{ estate.address.region_code }}</div>
+                    <div class="col-md-4"><strong>Konungsríki:</strong></div>
+                    <div class="col-md-8">{{ estate.address.region_code.kingdom }}</div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-md-4"><strong>Stærð:</strong></div>
+                    <div class="col-md-8">{{ estate.size }} fm</div>
+                    <div class="col-md-4"><strong>Herbergi:</strong></div>
+                    <div class="col-md-8">{{ estate.rooms }}</div>
+                    <div class="col-md-4"><strong>Hæðir:</strong></div>
+                    <div class="col-md-8">{{ estate.floors }}</div>
+                    <div class="col-md-4"><strong>Turnar:</strong></div>
+                    <div class="col-md-8">{{ estate.towers }}</div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-md-4"><strong>Eigandi:</strong></div>
+                    <div class="col-md-8">{{ estate.user.get_full_name }}</div>
+                </div>
+                <br>
+            </div>
+
+            <div class="col-md-6 text-right">
+                <img src="{{ estate.estateimage_set.first }}" class="estate-img thumbnail" alt="{{ estate.name }}"/>
+            </div>
+
+        </div>
+        <br>
+        <div class="row">
+
+            <div class="col-md-6"><h5>Persónu upplýsingar</h5></div>
+            <div class="col-md-6"></div>
+            <div class="col-md-12">
+                <hr>
+            </div>
+
+            <div class="col-md-6">
+                <div class="upplysingar">{{ client.get_full_name }}</div>
+            </div>
+            <div class="col-md-6">
+                <div class="upplysingar">{{ client.userprofile.street }}, {{ client.userprofile.region }}</div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="upplysingar">{{ client.userprofile.ssn }}</div>
+            </div>
+            <div class="col-md-6">
+                <div class="upplysingar">{{ client.email }}</div>
+            </div>
+
+
+        </div>
+        <br>
+        <div class="row">
+
+            <div class="col-md-6"></div>
+            <div class="col-md-6 text-right"><h3>Verð: kr. {{ estate.price }}</h3></div>
+            <div class="col-md-6"></div>
+            <div class="col-md-6 text-right"><p>{{ estate.short_description }}</p></div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-left">
+                <a href="{% url 'sale-card-info' estate.id %}" class="btn btn-outline-danger">Breyta upplýsingum</a>
+                <a href="{% url 'sale-card-info' estate.id %}" class="btn btn-outline-danger">Skrá Greiðslukort</a>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
