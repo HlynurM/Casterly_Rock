@@ -73,20 +73,20 @@
             <form id="filter-items">
                 <select id="priceDropdown">
                     <option value="">Verð</option>
-                    <option value="1">0-200 mil.</option>
-                    <option value="2">200-400 mil.</option>
-                    <option value="3">400-600 mil.</option>
-                    <option value="4">600-800 mil.</option>
-                    <option value="5">meira en 800 mil.</option>
+                    <option value="1">0-200 þús €.</option>
+                    <option value="2">200-400 þús €</option>
+                    <option value="3">400-600 þús €</option>
+                    <option value="4">600-800 þús €</option>
+                    <option value="5">meira en 800 þús €</option>
                 </select>
 
                 <select id="roomsDropdown">
                     <option value="">Herbergi</option>
-                    <option value="1">0-2</option>
-                    <option value="2">2-4</option>
-                    <option value="3">4-6 mil.</option>
-                    <option value="4">6-8 mil.</option>
-                    <option value="5">8 eða fl.</option>
+                    <option value="1">0-4</option>
+                    <option value="2">4-8</option>
+                    <option value="3">8-12.</option>
+                    <option value="4">12-16</option>
+                    <option value="5">16 eða fl.</option>
                 </select>
                 <br>
                 <input type="checkbox" id="on_saleCheck"> Til sölu
@@ -100,10 +100,7 @@
 
             {# Skráður inn: #}
             {% if user.is_authenticated %}
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'add_new_estate' %}">SKRÁ NÝJA EIGN<span
-                            class="sr-only">(current)</span></a>
-                </li>
+
 
                 <li class="nav-item active profile-name" >
                 <a class="nav-link profile-name" href="{% url 'profile' %}">
@@ -151,11 +148,12 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right text-lg-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{% url 'estates-index' %}">FORSÍÐA</a>
+                    <a class="dropdown-item" href="{% url 'company-about' %}">UM OKKUR</a>
+
                     {% if user.is_authenticated %}
                         <a class="dropdown-item" href="{% url 'profile' %}">MITT SVÆÐI</a>
                         <a class="dropdown-item" href="{% url 'my_estates' %}">MÍNAR EIGNIR</a>
                     {% endif %}
-                    <a class="dropdown-item" href="{% url 'company-about' %}">UM OKKUR</a>
                     {% if user.is_authenticated %}
                         <a class="dropdown-item" href="{% url 'add_new_estate' %}">SKRÁ NÝJA EIGN</a>
                         <div class="dropdown-divider">

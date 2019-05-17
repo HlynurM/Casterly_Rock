@@ -2,15 +2,15 @@ function check_priceDropDown() {
     if ($('#priceDropdown').val() === "") {
         return [0, 99999999999999999]
     } else if ($('#priceDropdown').val() === "1") {
-        return [0, 200000000]
+        return [0, 200000]
     } else if ($('#priceDropdown').val() === "2") {
-        return [200000000, 400000000]
+        return [200000, 400000]
     } else if ($('#priceDropdown').val() === "3") {
-        return [400000000, 600000000]
+        return [400000, 600000]
     } else if ($('#priceDropdown').val() === "4") {
-        return [600000000, 800000000]
+        return [600000, 800000]
     } else if ($('#priceDropdown').val() === "5") {
-        return [800000000, 99999999999999999]
+        return [800000, 99999999999999999]
     }
 };
 
@@ -18,15 +18,15 @@ function check_roomsDropDown() {
     if ($('#roomsDropdown').val() === "") {
         return [0, 9999999999999999999999]
     } else if ($('#roomsDropdown').val() === "1") {
-        return [0, 2]
+        return [0, 4]
     } else if ($('#roomsDropdown').val() === "2") {
-        return [2, 4]
+        return [4, 8]
     } else if ($('#roomsDropdown').val() === "3") {
-        return [4, 6]
+        return [8, 12]
     } else if ($('#roomsDropdown').val() === "4") {
-        return [6, 8]
+        return [12, 16]
     } else if ($('#roomsDropdown').val() === "5") {
-        return [8, 99999999999999999]
+        return [16, 99999999999999999]
     }
 };
 
