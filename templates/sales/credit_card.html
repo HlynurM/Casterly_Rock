@@ -64,10 +64,10 @@
                 <div class="upplysingar">{{ client.userprofile.street }}, {{ client.userprofile.region }}</div>
             </div>
 
-{#            <form class="form form-horizontal"#}
-{#                  action="{% url 'sale-card-info' id %}"#}
-{#                  enctype="multipart/form-data"#}
-{#                  method="post">#}
+            <form class="form form-horizontal"
+                  action="{% url 'sale-card-info' client.id %}"
+                  enctype="multipart/form-data"
+                  method="post">
 
                 {% csrf_token %}
 
@@ -80,7 +80,7 @@
                            class="btn btn-danger btn-block"
                     />
                 </div>
-{#            </form>#}
+            </form>
         </div>
         <br>
 
