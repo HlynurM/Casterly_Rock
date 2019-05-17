@@ -78,11 +78,11 @@
                 <a href="mailto:emailseljanda">Við seljendur</a><br>
                 <a href="mailto:xaro@casterlyrock.we">Við fasteignasala</a></p>
 
-            <a href="{% url 'sale-index' estate.id %}" class="btn btn-outline-danger">Kaupa</a>
+
 
         </div>
     </div>
-
+    <br><br><br><br><br><br><br>
     <div class="about">
         <p>{{ estate.description }}
         </p>
@@ -91,12 +91,12 @@
         <div class="text-left">
             <a href="{% url 'sale-index' estate.id %}" class="btn btn-outline-danger">Kaupa</a>
         </div>
-    {% else %}
-        <a href="{% url 'estates-index' %}" class="btn btn-outline-danger">Aftur á forsíðu</a>
     {% endif %}
     {% if user.is_authenticated and user.id == estate.user_id %}
-    <a href="{% url 'update_estate' estate.id %}" class="btn btn-outline-danger">Uppfæra upplýsingar</a>
-    <a href="{% url 'remove_estate' estate.id %}" class="btn btn-danger">Eyða eign</a>
+        <div class="text-left">
+            <a href="{% url 'update_estate' estate.id %}" class="btn btn-outline-danger">Uppfæra upplýsingar</a>
+            <a href="{% url 'remove_estate' estate.id %}" class="btn btn-danger">Eyða eign</a>
+        </div>
     {% endif %}
 
 
