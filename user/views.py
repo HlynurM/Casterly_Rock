@@ -1,4 +1,5 @@
 # Create your views here.
+from django.db.models import Q
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from estates.models import Estates
@@ -63,11 +64,14 @@ def index(request):
 def my_estates(request):
     '''Forsiduyfirlit'''
     myuserid = UserProfile.objects.filter(user = request.user).first().user.id
+    myestates = []
+    for estate in Estates.objects.filter():
+        if estate.user_id == myuserid:
+            print(estate)
+            myestates.append(estate)
 
-    for estate in Estates.objects.filter(
+    return render(request, 'user/my_estates.html', myestates)
 
-    ):
-        print(estate)
 
     if 'search_filter' in request.GET:
         search_filter = request.GET.get('search_filter', '')
