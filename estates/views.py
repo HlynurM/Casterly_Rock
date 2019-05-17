@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
 from django.db.models import Q
-from estates.forms.new_estate_form import CreateEstateForm, UpdateEstateForm
+from estates.forms.new_estate_form import CreateEstateForm, UpdateEstateForm, AddressForm, RegionForm, KingdomForm
 from estates.models import Estates, EstateImage, StarRating
 from django.contrib import messages
 
@@ -54,9 +54,15 @@ def get_estate_by_id(request, id):
 def add_new_estate(request):
     if request.method == 'POST':
         estate_form = CreateEstateForm(data=request.POST)
+        #region_form = RegionForm(data=request.POST)
+        #address_form = AddressForm(data=request.POST)
+        #kingdom_form = KingdomForm(data=request.POST)
 
+        #if estate_form.is_valid() and region_form.is_valid():
         if estate_form.is_valid():
             estate = estate_form.save()  # save the form into database
+            #region_form.save()
+
             estate_image = EstateImage(image=request.POST['Slóð_á_mynd'], estate=estate)
             if estate_image.image != "":
                 estate_image.save()  # save the image into database
@@ -64,9 +70,13 @@ def add_new_estate(request):
             return redirect('estates-index')
     else:
         estate_form = CreateEstateForm()
+        #region_form = RegionForm()
+
 
     context = {
         'estate_form': estate_form,
+        #'region_form': region_form,
+
     }
     return render(request, 'estates/add_new_estate.html', context)
 

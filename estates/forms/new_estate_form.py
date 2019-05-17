@@ -1,14 +1,16 @@
 from django.forms import ModelForm, widgets
 from django import forms
-from estates.models import Estates, EstateDetails, Address
+from estates.models import Estates, EstateDetails, Address, Kingdom
 
 class CreateEstateForm(ModelForm):
+    #völdum þennan titil á breytunafn til að það myndi birtast á íslensku í formi á vef
     Slóð_á_mynd = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     class Meta:
         model = Estates
-        exclude = ['id', 'user']
+        exclude = ['id']
         fields = ['name',
+                  'user',
                   'short_description',
                   'description',
                   'Slóð_á_mynd',
@@ -26,7 +28,7 @@ class CreateEstateForm(ModelForm):
                   'category',
                   'price']
         # fields = ['name', 'short_description', 'description', 'address', 'category', 'price', 'on_sale']
-        plabels = {
+        labels = {
             "name": "Nafn",
             "short_description": "Stutt og hnitmiðuð fyrirsögn",
             "description": "Lýsing á eign",
@@ -130,6 +132,39 @@ class UpdateEstateForm(ModelForm):
             'drawbridge': widgets.CheckboxInput(attrs={'class': 'checkbox'})
         }
 
+
+class AddressForm(ModelForm):
+    class Meta:
+        model = Address
+        exclude = ['id', 'user']
+        fields = ['street_name']
+        labels = {
+            "street_name": "Gata",
+        }
+
+class RegionForm(ModelForm):
+    class Meta:
+        model = Address
+        exclude = ['id', 'user']
+        widgets = {
+            'region_code': widgets.Select(attrs={'class': 'form-control'}),
+            'kingdom': widgets.Select(attrs={'class': 'form-control'}),
+        }
+        labels = {
+            "region_code": "Póstnúmer",
+            "street_name": "Gata"
+        }
+
+class KingdomForm(ModelForm):
+    class Meta:
+        model = Kingdom
+        exclude = ['id', 'user']
+        widgets = {
+        }
+        labels = {
+            "kingdom": "Hérað",
+
+        }
 
 # class AddDetailsForm(ModelForm):
 #     class Meta:
