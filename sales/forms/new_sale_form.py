@@ -7,17 +7,20 @@ from user.models import CreditCard
 class NewCreditCardForm(ModelForm):
     class Meta:
         model = CreditCard
-        exclude = ['id', 'user']
+        exclude = ['id']
         fields = ['credit_number',
                   'sec_number',
-                  'credit_amount']
+                  'credit_amount',
+                  'user']
         labels = {
             "credit_number": "Kortanúmer",
             "sec_number": "Öryggisnúmer",
-            "credit_amount": "Upphæð"
+            "credit_amount": "Upphæð",
+            "user": "Eigandi"
         }
         widgets = {
             'credit_number': widgets.NumberInput(attrs={'class': 'form-control col-md-12'}),
             'sec_number': widgets.NumberInput(attrs={'class': 'form-control col-md-6'}),
-            'credit_amount': widgets.NumberInput(attrs={'class': 'form-control col-md-6'})
+            'credit_amount': widgets.NumberInput(attrs={'class': 'form-control col-md-6'}),
+            'user': widgets.Select(attrs={'class': 'form-control col-md-6'})
         }

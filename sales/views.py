@@ -21,11 +21,11 @@ def start_sale(request, id):
 def new_card_info(request, id):
     if request.method == 'POST':
         kredit_form = NewCreditCardForm(data=request.POST)
-        print(f'fyllt kreditform {kredit_form}')
+        # print(f'fyllt kreditform {kredit_form}')
         if kredit_form.is_valid():
-            estate = kredit_form.save()  # save the form into database
-            messages.success(request, f'Skráning á eign tókst.')
-            return redirect('sale-confirm')
+            kredit_form.save()  # save the form into database
+            messages.success(request, f'Skráning á korti tókst.')
+            return redirect('sale-confirm', id=id)
     else:
         # print("kredit form")
         kredit_form = NewCreditCardForm()
