@@ -2,7 +2,6 @@ from django.forms import ModelForm, widgets
 from django import forms
 from estates.models import Estates, EstateDetails, Address
 
-
 class CreateEstateForm(ModelForm):
     Slóð_á_mynd = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
 
@@ -34,7 +33,7 @@ class CreateEstateForm(ModelForm):
             "description": "Lýsing á eign",
             "address": "Heimilisfang",
             "category": "Flokkur",
-            "price": "Verð á eign",
+            "price": "Verð á eign í €",
             "user": "Eigandi",
             "on_sale": "Er eignin á sölu?",
             "size": "Stærð eignar",
