@@ -51,25 +51,49 @@
             <!--/ FILTER ICON BELOW -->
             <div class="input-group-append">
 
-                <button class="btn btn-outline-light"
-                        type="button"
-                        id="filter"
-                        alt="filter"
-                        data-container="body"
-                        data-toggle="popover"
-                        data-placement="bottom"
-                        title="Sía nánar"
-                        data-content="Þetta er núna virkur popover gluggi.">
-{#                        data-popover-content="#logout">#}
-                    <!--/Get vætanlega nýtt mér auka síðu fyrir data popover content -->
-                    <span class="fas fa-filter" id=""></span>
-                </button>
+                    <button class="btn btn-outline-light"
+                            type="button"
+                            id="filter"
+                            alt="filter"
+                            data-toggle="collapse"
+                            data-target="#filter-box"
+                            aria-expanded="false"
+                            aria-controls="filter-box">
+                        <span class="fas fa-filter" id=""></span>
+                    </button>
             </div>
 {#            <div class="input-group-append">#}
 {#                <button id="popbutton" class="btn btn-outline-light" data-placement="bottom">pop up</button>#}
 {#            </div>#}
         </div>
     </form>
+
+    <div class="collapse" id="filter-box">
+        <div class="card card-body">
+            <form id="filter-items">
+                <select id="priceDropdown">
+                    <option value="">Verð</option>
+                    <option value="1">0-200 mil.</option>
+                    <option value="2">200-400 mil.</option>
+                    <option value="3">400-600 mil.</option>
+                    <option value="4">600-800 mil.</option>
+                    <option value="5">meira en 800 mil.</option>
+                </select>
+
+                <select id="roomsDropdown">
+                    <option value="">Herbergi</option>
+                    <option value="1">0-2</option>
+                    <option value="2">2-4</option>
+                    <option value="3">4-6 mil.</option>
+                    <option value="4">6-8 mil.</option>
+                    <option value="5">8 eða fl.</option>
+                </select>
+                <br>
+                <input type="checkbox" id="on_saleCheck"> Til sölu
+                <input type="checkbox" id="moatCheck"> Díki
+            </form>
+        </div>
+    </div>
 
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav  ml-auto">
